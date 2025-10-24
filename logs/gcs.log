@@ -2,6 +2,843 @@
 > gcs@0.1.0 start
 > react-scripts start
 
-(node:25820) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(node:27992) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
 (Use `node --trace-deprecation ...` to show where the warning was created)
-Something is already running on port 3000.
+(node:27992) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:27992) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view gcs in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.1.5:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/types/mission.ts:137:3
+TS2717: Subsequent property declarations must have the same type.  Property 'homeLocationSource' must be of type '"ip" | "gps" | "manual"', but here has type '"ip" | "gps" | "manual" | "zipcode"'.
+    135 |   currentPlan: FlightPlan | null;
+    136 |   homeLocation: Position;
+  > 137 |   homeLocationSource: 'ip' | 'gps' | 'manual' | 'zipcode';
+        |   ^^^^^^^^^^^^^^^^^^
+    138 |   selectedWaypoint: string | null;
+    139 |   selectedBlock: string | null;
+    140 |   editMode: 'view' | 'waypoints' | 'blocks' | 'sectors';
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/types/mission.ts:137:3
+TS2717: Subsequent property declarations must have the same type.  Property 'homeLocationSource' must be of type '"ip" | "gps" | "manual"', but here has type '"ip" | "gps" | "manual" | "zipcode"'.
+    135 |   currentPlan: FlightPlan | null;
+    136 |   homeLocation: Position;
+  > 137 |   homeLocationSource: 'ip' | 'gps' | 'manual' | 'zipcode';
+        |   ^^^^^^^^^^^^^^^^^^
+    138 |   selectedWaypoint: string | null;
+    139 |   selectedBlock: string | null;
+    140 |   editMode: 'view' | 'waypoints' | 'blocks' | 'sectors';
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 6:8:  'MissionPlanner' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:39:30
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    37 |
+    38 |   const addAction = (actionTemplate: WaypointAction) => {
+  > 39 |     const actions = waypoint.actions || [];
+       |                              ^^^^^^^
+    40 |     const newAction = { ...actionTemplate, id: `action_${Date.now()}` };
+    41 |     handleFieldChange('actions', [...actions, newAction]);
+    42 |   };
+
+ERROR in src/components/WaypointEditor.tsx:41:23
+TS2345: Argument of type '"actions"' is not assignable to parameter of type 'keyof Waypoint'.
+    39 |     const actions = waypoint.actions || [];
+    40 |     const newAction = { ...actionTemplate, id: `action_${Date.now()}` };
+  > 41 |     handleFieldChange('actions', [...actions, newAction]);
+       |                       ^^^^^^^^^
+    42 |   };
+    43 |
+    44 |   const updateAction = (index: number, updatedAction: WaypointAction) => {
+
+ERROR in src/components/WaypointEditor.tsx:45:35
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    43 |
+    44 |   const updateAction = (index: number, updatedAction: WaypointAction) => {
+  > 45 |     const actions = [...(waypoint.actions || [])];
+       |                                   ^^^^^^^
+    46 |     actions[index] = updatedAction;
+    47 |     handleFieldChange('actions', actions);
+    48 |   };
+
+ERROR in src/components/WaypointEditor.tsx:47:23
+TS2345: Argument of type '"actions"' is not assignable to parameter of type 'keyof Waypoint'.
+    45 |     const actions = [...(waypoint.actions || [])];
+    46 |     actions[index] = updatedAction;
+  > 47 |     handleFieldChange('actions', actions);
+       |                       ^^^^^^^^^
+    48 |   };
+    49 |
+    50 |   const removeAction = (index: number) => {
+
+ERROR in src/components/WaypointEditor.tsx:51:35
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    49 |
+    50 |   const removeAction = (index: number) => {
+  > 51 |     const actions = [...(waypoint.actions || [])];
+       |                                   ^^^^^^^
+    52 |     actions.splice(index, 1);
+    53 |     handleFieldChange('actions', actions);
+    54 |   };
+
+ERROR in src/components/WaypointEditor.tsx:53:23
+TS2345: Argument of type '"actions"' is not assignable to parameter of type 'keyof Waypoint'.
+    51 |     const actions = [...(waypoint.actions || [])];
+    52 |     actions.splice(index, 1);
+  > 53 |     handleFieldChange('actions', actions);
+       |                       ^^^^^^^^^
+    54 |   };
+    55 |
+    56 |   const waypointOptions = flightPlan.waypoints.map(wp => ({
+
+ERROR in src/components/WaypointEditor.tsx:218:43
+TS2345: Argument of type 'Partial<WaypointAction>' is not assignable to parameter of type 'WaypointAction'.
+  Types of property 'type' are incompatible.
+    Type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude" | undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+      Type 'undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+    216 |                 onChange={(e) => {
+    217 |                   const template = WAYPOINT_ACTION_TEMPLATES[e.target.value as keyof typeof WAYPOINT_ACTION_TEMPLATES];
+  > 218 |                   if (template) addAction(template);
+        |                                           ^^^^^^^^
+    219 |                   e.target.value = '';
+    220 |                 }}
+    221 |                 style={{
+
+ERROR in src/components/WaypointEditor.tsx:241:21
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    239 |           </div>
+    240 |
+  > 241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+        |                     ^^^^^^^
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+    243 |               {waypoint.actions.map((action, index) => (
+    244 |                 <div
+
+ERROR in src/components/WaypointEditor.tsx:241:41
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    239 |           </div>
+    240 |
+  > 241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+        |                                         ^^^^^^^
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+    243 |               {waypoint.actions.map((action, index) => (
+    244 |                 <div
+
+ERROR in src/components/WaypointEditor.tsx:243:25
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+  > 243 |               {waypoint.actions.map((action, index) => (
+        |                         ^^^^^^^
+    244 |                 <div
+    245 |                   key={index}
+    246 |                   style={{
+
+ERROR in src/components/WaypointEditor.tsx:243:38
+TS7006: Parameter 'action' implicitly has an 'any' type.
+    241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+  > 243 |               {waypoint.actions.map((action, index) => (
+        |                                      ^^^^^^
+    244 |                 <div
+    245 |                   key={index}
+    246 |                   style={{
+
+ERROR in src/components/WaypointEditor.tsx:243:46
+TS7006: Parameter 'index' implicitly has an 'any' type.
+    241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+  > 243 |               {waypoint.actions.map((action, index) => (
+        |                                              ^^^^^
+    244 |                 <div
+    245 |                   key={index}
+    246 |                   style={{
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:39:30
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    37 |
+    38 |   const addAction = (actionTemplate: WaypointAction) => {
+  > 39 |     const actions = waypoint.actions || [];
+       |                              ^^^^^^^
+    40 |     const newAction = { ...actionTemplate, id: `action_${Date.now()}` };
+    41 |     handleFieldChange('actions', [...actions, newAction]);
+    42 |   };
+
+ERROR in src/components/WaypointEditor.tsx:41:23
+TS2345: Argument of type '"actions"' is not assignable to parameter of type 'keyof Waypoint'.
+    39 |     const actions = waypoint.actions || [];
+    40 |     const newAction = { ...actionTemplate, id: `action_${Date.now()}` };
+  > 41 |     handleFieldChange('actions', [...actions, newAction]);
+       |                       ^^^^^^^^^
+    42 |   };
+    43 |
+    44 |   const updateAction = (index: number, updatedAction: WaypointAction) => {
+
+ERROR in src/components/WaypointEditor.tsx:45:35
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    43 |
+    44 |   const updateAction = (index: number, updatedAction: WaypointAction) => {
+  > 45 |     const actions = [...(waypoint.actions || [])];
+       |                                   ^^^^^^^
+    46 |     actions[index] = updatedAction;
+    47 |     handleFieldChange('actions', actions);
+    48 |   };
+
+ERROR in src/components/WaypointEditor.tsx:47:23
+TS2345: Argument of type '"actions"' is not assignable to parameter of type 'keyof Waypoint'.
+    45 |     const actions = [...(waypoint.actions || [])];
+    46 |     actions[index] = updatedAction;
+  > 47 |     handleFieldChange('actions', actions);
+       |                       ^^^^^^^^^
+    48 |   };
+    49 |
+    50 |   const removeAction = (index: number) => {
+
+ERROR in src/components/WaypointEditor.tsx:51:35
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    49 |
+    50 |   const removeAction = (index: number) => {
+  > 51 |     const actions = [...(waypoint.actions || [])];
+       |                                   ^^^^^^^
+    52 |     actions.splice(index, 1);
+    53 |     handleFieldChange('actions', actions);
+    54 |   };
+
+ERROR in src/components/WaypointEditor.tsx:53:23
+TS2345: Argument of type '"actions"' is not assignable to parameter of type 'keyof Waypoint'.
+    51 |     const actions = [...(waypoint.actions || [])];
+    52 |     actions.splice(index, 1);
+  > 53 |     handleFieldChange('actions', actions);
+       |                       ^^^^^^^^^
+    54 |   };
+    55 |
+    56 |   const waypointOptions = flightPlan.waypoints.map(wp => ({
+
+ERROR in src/components/WaypointEditor.tsx:218:43
+TS2345: Argument of type 'Partial<WaypointAction>' is not assignable to parameter of type 'WaypointAction'.
+  Types of property 'type' are incompatible.
+    Type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude" | undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+      Type 'undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+    216 |                 onChange={(e) => {
+    217 |                   const template = WAYPOINT_ACTION_TEMPLATES[e.target.value as keyof typeof WAYPOINT_ACTION_TEMPLATES];
+  > 218 |                   if (template) addAction(template);
+        |                                           ^^^^^^^^
+    219 |                   e.target.value = '';
+    220 |                 }}
+    221 |                 style={{
+
+ERROR in src/components/WaypointEditor.tsx:241:21
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    239 |           </div>
+    240 |
+  > 241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+        |                     ^^^^^^^
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+    243 |               {waypoint.actions.map((action, index) => (
+    244 |                 <div
+
+ERROR in src/components/WaypointEditor.tsx:241:41
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    239 |           </div>
+    240 |
+  > 241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+        |                                         ^^^^^^^
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+    243 |               {waypoint.actions.map((action, index) => (
+    244 |                 <div
+
+ERROR in src/components/WaypointEditor.tsx:243:25
+TS2339: Property 'actions' does not exist on type 'Waypoint'.
+    241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+  > 243 |               {waypoint.actions.map((action, index) => (
+        |                         ^^^^^^^
+    244 |                 <div
+    245 |                   key={index}
+    246 |                   style={{
+
+ERROR in src/components/WaypointEditor.tsx:243:38
+TS7006: Parameter 'action' implicitly has an 'any' type.
+    241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+  > 243 |               {waypoint.actions.map((action, index) => (
+        |                                      ^^^^^^
+    244 |                 <div
+    245 |                   key={index}
+    246 |                   style={{
+
+ERROR in src/components/WaypointEditor.tsx:243:46
+TS7006: Parameter 'index' implicitly has an 'any' type.
+    241 |           {waypoint.actions && waypoint.actions.length > 0 ? (
+    242 |             <div style={{ maxHeight: '200px', overflowY: 'auto' }}>
+  > 243 |               {waypoint.actions.map((action, index) => (
+        |                                              ^^^^^
+    244 |                 <div
+    245 |                   key={index}
+    246 |                   style={{
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/WaypointEditor.tsx:218:43
+TS2345: Argument of type 'Partial<WaypointAction>' is not assignable to parameter of type 'WaypointAction'.
+  Types of property 'type' are incompatible.
+    Type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude" | undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+      Type 'undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+    216 |                 onChange={(e) => {
+    217 |                   const template = WAYPOINT_ACTION_TEMPLATES[e.target.value as keyof typeof WAYPOINT_ACTION_TEMPLATES];
+  > 218 |                   if (template) addAction(template);
+        |                                           ^^^^^^^^
+    219 |                   e.target.value = '';
+    220 |                 }}
+    221 |                 style={{
+
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:218:43
+TS2345: Argument of type 'Partial<WaypointAction>' is not assignable to parameter of type 'WaypointAction'.
+  Types of property 'type' are incompatible.
+    Type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude" | undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+      Type 'undefined' is not assignable to type '"go" | "stay" | "circle" | "eight" | "oval" | "survey_rectangle" | "home" | "heading" | "attitude"'.
+    216 |                 onChange={(e) => {
+    217 |                   const template = WAYPOINT_ACTION_TEMPLATES[e.target.value as keyof typeof WAYPOINT_ACTION_TEMPLATES];
+  > 218 |                   if (template) addAction(template);
+        |                                           ^^^^^^^^
+    219 |                   e.target.value = '';
+    220 |                 }}
+    221 |                 style={{
+
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+ERROR in src/types/mission.ts:193:5
+TS2322: Type 'string' is not assignable to type 'number'.
+    191 |     type: 'survey_rectangle' as const,
+    192 |     grid: 50,
+  > 193 |     orientation: 'NS' as const
+        |     ^^^^^^^^^^^
+    194 |   }
+    195 | };
+    196 |
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+ERROR in src/types/mission.ts:193:5
+TS2322: Type 'string' is not assignable to type 'number'.
+    191 |     type: 'survey_rectangle' as const,
+    192 |     grid: 50,
+  > 193 |     orientation: 'NS' as const
+        |     ^^^^^^^^^^^
+    194 |   }
+    195 | };
+    196 |
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/components/WaypointEditor.tsx:327:77
+TS2322: Type '"NS" | "WE"' is not assignable to type 'number | undefined'.
+  Type 'string' is not assignable to type 'number'.
+    325 |                         <select
+    326 |                           value={action.orientation || 'NS'}
+  > 327 |                           onChange={(e) => updateAction(index, { ...action, orientation: e.target.value as 'NS' | 'WE' })}
+        |                                                                             ^^^^^^^^^^^
+    328 |                           style={{ width: '100%', padding: '0.25rem', fontSize: '0.8rem' }}
+    329 |                         >
+    330 |                           <option value="NS">North-South</option>
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/MissionPlanner.tsx
+  Line 8:8:  'WaypointEditor' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/MissionPlanner.tsx
+  Line 8:8:  'WaypointEditor' is defined but never used  @typescript-eslint/no-unused-vars
+
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/MissionPlanner.tsx
+  Line 8:8:    'WaypointEditor' is defined but never used           @typescript-eslint/no-unused-vars
+  Line 172:9:  'updateWaypoint' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 187:9:  'deleteWaypoint' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/MissionPlanner.tsx
+  Line 8:8:    'WaypointEditor' is defined but never used           @typescript-eslint/no-unused-vars
+  Line 172:9:  'updateWaypoint' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 187:9:  'deleteWaypoint' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/services/GeocodingService.ts
+  Line 6:40:  'ZipcodeLocation' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.

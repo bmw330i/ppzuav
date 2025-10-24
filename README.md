@@ -1,255 +1,390 @@
-# Paparazzi Next-Gen UAV System
+# Paparazzi UAV System - Next Generation (v4.0)
 
-## 🎯 Phase 1 Complete: OCaml Dependencies Eliminated ✅
+**🎯 A Complete OCaml-Free Modernization with LLM Integration and Interactive Mapping**
 
-**Mission Accomplished!** We have successfully modernized the Paparazzi UAV system by:
-- ✅ **Eliminated all OCaml dependencies** as requested
-- ✅ **Replaced Ivy-OCaml messaging** with modern MQTT + WebSocket architecture  
-- ✅ **Implemented LLM intermediary system** via MCP server for AI-assisted flight operations
-- ✅ **Created Node.js-based replacement** that is fully compatible with existing hardware
-- ✅ **Preserved proven flight control** algorithms while modernizing ground infrastructure
+## 🚀 **Mission Accomplished - Phase 2 Complete!**
 
-## Overview
+**All Goals Achieved!** We have successfully transformed the traditional Paparazzi UAV system into a modern, intelligent platform:
 
-Paparazzi Next-Gen is a modernized version of the open-source Paparazzi UAV system, rebuilt from the ground up to eliminate OCaml dependencies and embrace autonomous flight with LLM-assisted mission management. This fork maintains full compatibility with existing ARM7 and STM32-based autopilot hardware while providing a cutting-edge Node.js and web-based ground control system.
+- ✅ **OCaml Dependencies Eliminated** - Pure Node.js/TypeScript architecture
+- ✅ **Interactive Real-time Mapping** - IP geolocation with OpenStreetMap integration  
+- ✅ **LLM-Assisted Flight Operations** - Model Context Protocol integration
+- ✅ **Professional Service Management** - Background processes with file-based logging
+- ✅ **Modern Ground Control Station** - React-based web interface with demo mode
+- ✅ **Complete Message Broker** - MQTT + WebSocket replacing Ivy-OCaml
 
-**🎯 Key Innovation**: Integration of Large Language Models (LLMs) through a Model Context Protocol (MCP) server, enabling intelligent mission planning, real-time atmospheric analysis, and autonomous decision-making for scientific research flights.
+## 🎯 **Project Vision**
 
-## 🆕 What's Implemented in Phase 1
+This project represents a complete modernization of the traditional Paparazzi UAV system, eliminating OCaml dependencies and replacing them with a modern Node.js/TypeScript stack. The system now features LLM integration via Model Context Protocol (MCP), interactive real-time mapping with IP-based geolocation, and a professional web-based Ground Control Station that runs as a background service with structured logging.
 
-### ✅ **Completed Technology Stack**
-- ✅ **OCaml dependencies eliminated** - Now pure Node.js + TypeScript
-- ✅ **Native macOS M4 support** - Optimized for Apple Silicon  
-- ✅ **Modern web-based GCS** - React with real-time telemetry visualization
-- ✅ **MQTT + WebSocket messaging** - Replaces Ivy-OCaml message broker
-- ✅ **Docker containerization** - Complete development and deployment environment
+## 🏗️ **Modern Architecture Overview**
 
-### ✅ **Operational LLM Integration**
-- ✅ **MCP Server** - Structured communication protocol for LLM-autopilot interaction
-- ✅ **Flight planning tools** - Mission optimization and weather analysis
-- ✅ **Real-time assistance** - System health monitoring and recommendations  
-- ✅ **Safety oversight** - Anomaly detection and emergency procedures
-- ✅ **Atmospheric analysis** - Perfect for scientific research missions
+### **Core Technology Stack:**
+- **🚀 Backend**: Node.js 18+ (ARM64 optimized), TypeScript, MQTT, WebSocket
+- **⚛️ Frontend**: React 19, TypeScript, Leaflet mapping, Socket.IO
+- **🗺️ Mapping**: OpenStreetMap (free), IP geolocation via ipapi.co, GPS fallback
+- **🧠 LLM Integration**: Model Context Protocol (MCP) server for intelligent flight management
+- **📊 Logging**: Structured JSON logging to files with professional monitoring tools
+- **🔧 Services**: Background process management with PID tracking and health monitoring
 
-### ✅ **Enhanced Autonomous Framework**
-- ✅ **Hardware compatibility** - Full support for existing ARM7/STM32 autopilots
-- ✅ **Modern communication** - Serial port integration with message broker
-- ✅ **Safety systems** - Multi-layered failsafe mechanisms
-- ✅ **Type safety** - Comprehensive TypeScript with Zod validation
-- ✅ **Real-time operation** - WebSocket-based live telemetry and control
-
-## 🎯 Primary Use Cases
-
-### 1. Atmospheric Research (SUMO-style)
-Perfect for scientific missions with miniaturized environmental sensors:
-- Temperature, humidity, pressure profiling
-- Air quality monitoring (CO2, particulates)
-- Meteorological data collection
-- Research station support in remote locations
-- LLM-guided mission optimization based on atmospheric conditions
-
-### 2. Autonomous Surveillance
-- Perimeter monitoring
-- Wildlife tracking
-- Infrastructure inspection
-- Search and rescue operations
-
-### 3. Educational Platform
-- University research projects
-- Autonomous systems development
-- Atmospheric science education
-- AI/ML integration studies
-
-## 🛠️ Hardware Compatibility
-
-### Supported Autopilot Boards
-- **Lisa/L** - STM32F4 with integrated IMU and GPS
-- **Lisa/M** - STM32F4 with basic sensor suite
-- **Umarim Lite v2** - ARM7 with external sensors
-- **TWOG** - ARM7 with data logging capabilities
-- **Custom STM32** - F1/F4/F7 series compatible
-
-### Communication Hardware
-- **XBee Pro** - 900MHz/2.4GHz long-range telemetry
-- **LoRa modules** - 868MHz/915MHz alternative
-- **WiFi** - Short-range development and testing
-
-### Environmental Sensors (SUMO Configuration)
-- **Temperature**: High-precision digital sensors
-- **Humidity**: Capacitive humidity sensors
-- **Pressure**: Barometric pressure for altitude and weather
-- **Air Quality**: CO2, PM2.5, PM10 sensors
-- **Wind**: Airspeed and direction measurement
-
-## 🚀 Quick Start (macOS M4)
-
-### Prerequisites
-```bash
-# Install Node.js (v18+)
-brew install node
-
-# Install development tools
-brew install git cmake
-
-# Install ARM toolchain for autopilot firmware
-brew install --cask gcc-arm-embedded
+### **Service Architecture:**
+```
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   React GCS     │◄──►│  Message Broker  │◄──►│  Flight Sim     │
+│  (Port 3000)    │    │   (Port 8080)    │    │  (Port 8090)    │
+│   🗺️ Mapping    │    │   📡 MQTT/WS     │    │   🛩️ Physics    │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
+         ▲                        ▲                       ▲
+         │                        │                       │
+         ▼                        ▼                       ▼
+┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
+│   File Logs     │    │   MCP Server     │    │   Aircraft      │
+│  (/logs/*.log)  │    │   (Port 3001)    │    │   Hardware      │
+│   📊 Monitoring │    │   🧠 LLM AI      │    │   🛸 STM32      │
+└─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
-### Installation
+## 🌟 **Revolutionary Features**
+
+### **🗺️ Interactive Real-time Mapping System**
+Our mapping system sets a new standard for UAV ground control:
+
+- **🌍 Automatic IP Geolocation**: Detects your ground station location automatically using ipapi.co
+- **📍 Smart Location Detection**: Falls back to browser GPS for enhanced accuracy  
+- **✈️ Real-time Aircraft Tracking**: Live position updates with custom aircraft icons
+- **🛤️ Flight Path Visualization**: Dynamic flight path rendering with configurable history
+- **🎮 Integrated Demo Mode**: Realistic flight simulation for testing without hardware
+- **🗾 Professional Mapping**: OpenStreetMap integration (no API keys required)
+- **📱 Responsive Design**: Works seamlessly on desktop, tablet, and mobile
+
+### **🧠 LLM-Assisted Flight Management**
+Revolutionary AI integration that changes how we interact with UAVs:
+
+- **💬 Natural Language Commands**: "Fly to waypoint A", "Return to base", "Check battery status"
+- **🔍 Intelligent Analysis**: Real-time telemetry interpretation and optimization suggestions
+- **⚠️ Proactive Safety Monitoring**: Automated alerts for critical system states
+- **🗓️ Smart Mission Planning**: AI-assisted route optimization with weather consideration
+- **📈 Performance Insights**: Historical data analysis and flight improvement recommendations
+
+### **📊 Professional Service Management**
+Enterprise-grade service management built for reliability:
+
+- **🔄 Background Processing**: All services run independently without blocking terminal
+- **📁 Structured Logging**: JSON-formatted logs with timestamps, levels, and metadata
+- **🎛️ Service Orchestration**: Start/stop/restart all components with simple commands
+- **📈 Health Monitoring**: Real-time status checking with PID tracking
+- **🔍 Advanced Log Analysis**: Search, filter, and monitor across all services
+- **⚡ Hot Reloading**: Development mode with automatic service restart on code changes
+
+## 🚀 **Quick Start Guide**
+
+### **📋 Prerequisites**
 ```bash
-# Clone the repository
-git clone https://github.com/bmw330i/paparazzi.git
-cd paparazzi
+# Verify Node.js version (18+ required, ARM64 optimized for Apple Silicon)
+node --version  # Should show v18.0.0 or higher
 
-# Install dependencies
-npm install
-
-# Build the system
-npm run build
-
-# Start the ground control station
-npm run gcs
+# Verify npm is available
+npm --version
 ```
 
-### First Flight Simulation
+### **⚡ Super Fast Setup**
 ```bash
-# Start the simulator
-npm run sim
+# 1. Clone and setup (one command)
+git clone https://github.com/bmw330i/paparazzi.git && cd paparazzi && npm run setup
 
-# Open GCS in browser
+# 2. Start all services in background
+npm run services:start
+
+# 3. Open Ground Control Station
 open http://localhost:3000
-
-# Load example mission
-npm run load-mission examples/microjet_demo.json
 ```
 
+### **🎮 Test the Interactive Map**
+1. **Navigate to Map Tab** in the GCS interface
+2. **Wait for geolocation** - Your position will be detected automatically via IP
+3. **Click "📡 Live Data"** to switch to **"🎮 Demo Mode"**
+4. **Watch the magic** - See a simulated aircraft flying with real-time telemetry
+5. **Observe flight path** - Watch the orange line trace the aircraft's movement
 
-## 📡 System Architecture
+## 🎛️ **Service Management**
 
-The system follows a layered architecture prioritizing flight safety:
+### **🚀 Background Service Commands**
+```bash
+# Service Control
+npm run services:start    # Start all services in background
+npm run services:stop     # Stop all services gracefully
+npm run services:restart  # Restart all services
+npm run services:status   # Check what's running
+npm run services:clean    # Stop services and clean logs
 
-```
-1. Flight Control Core (C on STM32/ARM7) - ALWAYS MAINTAINS AIRCRAFT CONTROL
-2. Navigation System - Waypoint following and obstacle avoidance  
-3. Mission Management - High-level autonomous goal execution
-4. Ground Station - Monitoring, telemetry, mission updates
-5. LLM Assistant - Advisory suggestions, mission optimization
-```
-
-**Safety Principle**: The LLM can NEVER directly control flight surfaces or override safety protocols. It provides intelligent suggestions that are validated against flight envelopes and safety constraints.
-
-## 💬 LLM Chat Interface
-
-The integrated LLM provides natural language interaction for mission management:
-
-```
-Human: "Plan a temperature survey mission at 150m altitude covering the valley"
-
-LLM: "I'll create a survey pattern with 8 waypoints covering the valley area at 150m. 
-Based on current wind conditions (8kt from SW), I recommend starting from the 
-downwind side to optimize fuel efficiency. Estimated flight time: 28 minutes."
+# Quick individual access
+npm run gcs              # GCS only (foreground)
+npm run dev:broker       # Message broker only
+npm run sim              # Flight simulator only
 ```
 
-## 🔧 Development Environment
+### **📊 Advanced Logging & Monitoring**
+```bash
+# Real-time Log Monitoring
+npm run services:logs    # Live tail of all service logs
+npm run logs:tail        # Pretty-formatted live log viewer
+npm run logs:errors      # Show only error messages
+npm run logs:stats       # Display log statistics
 
-### Directory Structure (Modernized)
+# Targeted Log Analysis
+./scripts/logs.sh show gcs              # Last 50 lines of GCS
+./scripts/logs.sh show message-broker   # Message broker logs
+./scripts/logs.sh search "WebSocket"    # Search across all logs
+./scripts/logs.sh errors simulator      # Errors from simulator only
+```
+
+## 🌐 **Access Points & URLs**
+
+| Service | URL | Description |
+|---------|-----|-------------|
+| **🎛️ Ground Control Station** | http://localhost:3000 | Main web interface with interactive mapping |
+| **📡 Message Broker** | ws://localhost:8080 | WebSocket endpoint for real-time communication |
+| **🧠 MCP Server** | http://localhost:3001 | LLM integration endpoint |
+| **🛩️ Flight Simulator** | http://localhost:8090 | Physics simulation WebSocket |
+
+## 📁 **Logging System Architecture**
+
+### **📊 Log File Structure**
+```
+logs/
+├── combined.log         # 📋 All services aggregated
+├── message-broker.log   # 📡 MQTT broker and WebSocket server  
+├── gcs.log             # ⚛️ React app, compilation, and runtime
+├── mcp-server.log      # 🧠 LLM integration and MCP protocol
+└── simulator.log       # 🛩️ Flight physics and telemetry generation
+```
+
+### **📈 Log Format & Features**
+- **🏷️ Structured JSON**: Consistent format with timestamp, level, component, message
+- **🎨 Color-coded Output**: Visual distinction between ERROR, WARN, INFO, DEBUG
+- **🔍 Searchable Content**: Full-text search across all logs
+- **📊 Statistics Tracking**: Line counts, error rates, file sizes
+- **🔄 Automatic Rotation**: Configurable log retention (default: 7 days)
+
+## 🗺️ **Interactive Mapping Deep Dive**
+
+### **🌍 Geolocation Technology**
+Our advanced geolocation system provides accurate positioning:
+
+- **🌐 Primary: IP Geolocation** via ipapi.co (no API key required)
+- **📡 Secondary: Browser GPS** for enhanced precision when available
+- **📍 Accuracy Estimation** with confidence intervals displayed
+- **🏙️ Location Context** including city, country, and timezone
+- **⚡ Fast Updates** with intelligent caching and fallback mechanisms
+
+### **✈️ Aircraft Visualization**
+Professional-grade aircraft tracking and visualization:
+
+- **🔶 Custom Aircraft Icon** - Orange star with attitude indication
+- **🟢 Ground Station Marker** - Green diamond showing your location
+- **🛤️ Real-time Flight Path** - Dynamic orange line with 100-point history
+- **📊 Live Telemetry Overlay** - Altitude, speed, heading, battery status
+- **🎮 Demo Mode Toggle** - Seamless switch between live and simulated data
+
+### **🗾 Map Features**
+- **🗺️ OpenStreetMap Integration** - High-quality, free mapping tiles
+- **🔍 Zoom & Pan Controls** - Smooth navigation with mouse/touch
+- **📱 Responsive Design** - Optimized for all screen sizes
+- **🎨 Professional Styling** - Clean, aviation-focused interface
+- **⚡ Performance Optimized** - Efficient rendering with lazy loading
+
+## 🧠 **LLM Integration Capabilities**
+
+### **💬 Natural Language Interface**
+The integrated LLM provides intelligent assistance:
+
+```
+👤 Human: "Show me the current battery status and estimated flight time"
+
+🤖 LLM: "Current battery: 78% (11.8V). Based on current power consumption 
+and flight profile, estimated remaining flight time is 23 minutes. 
+Weather conditions are favorable with 5kt headwind."
+
+👤 Human: "Plan a return to base if battery drops below 25%"
+
+🤖 LLM: "Automated return-to-base trigger set for 25% battery. Route 
+calculated: direct heading 284°, distance 2.1km, ETA 4 minutes at 
+current airspeed. Landing pattern configured for runway 28."
+```
+
+### **🔍 Intelligent Analysis Features**
+- **📊 Real-time Data Interpretation** - Telemetry analysis and trend identification
+- **⚠️ Predictive Alerts** - Early warning system for potential issues
+- **🎯 Mission Optimization** - Route planning with weather and performance factors
+- **📈 Performance Tracking** - Historical analysis and improvement suggestions
+- **🛡️ Safety Oversight** - Continuous monitoring with emergency procedure recommendations
+
+## 🛠️ **Development Environment**
+
+### **📁 Project Structure (Modernized)**
 ```
 bmw330ipaparazzi/
-├── src/                    # Node.js source code
-│   ├── mcp-server/        # Model Context Protocol server
-│   ├── gcs/               # Web-based Ground Control Station
-│   ├── message-broker/    # MQTT/WebSocket telemetry
-│   └── tools/             # Build and configuration tools
-├── airborne/              # C code for autopilots (maintained)
-├── conf/                  # Configuration files (JSON format)
-├── data/                  # Maps, terrain data, mission files
-├── examples/              # Example missions and configurations
-├── docker/                # Container definitions
-└── docs/                  # Documentation and guides
+├── src/                           # 🚀 Node.js/TypeScript source
+│   ├── gcs/                      # ⚛️ React Ground Control Station
+│   │   ├── src/components/       # 🧩 UI components (MapView, etc.)
+│   │   ├── src/services/         # 🔧 GeolocationService, DemoData
+│   │   └── src/context/          # 🔄 WebSocket, state management
+│   ├── message-broker/           # 📡 MQTT/WebSocket communication
+│   ├── mcp-server/              # 🧠 LLM integration server
+│   ├── simulator/               # 🛩️ Flight physics simulation
+│   └── utils/                   # 🛠️ Shared utilities, logging
+├── scripts/                      # 📜 Service management scripts
+│   ├── services.sh              # 🎛️ Background service control
+│   └── logs.sh                  # 📊 Log monitoring utilities  
+├── logs/                        # 📁 All service logs
+├── .pids/                       # 🔢 Process ID tracking
+├── conf/                        # ⚙️ Configuration files
+├── airborne/                    # 🛸 C code for autopilots (preserved)
+└── docs/                        # 📚 Documentation
 ```
 
-## 🛩️ Flight Operations
+### **🔧 Development Workflow**
+```bash
+# Development mode with hot reloading
+npm run dev                      # All services with file watching
+npm run dev:gcs                 # GCS only with React hot reload
+npm run dev:broker              # Message broker with nodemon
 
-### Mission Planning
-1. **Natural Language**: Describe mission to LLM via chat
-2. **Visual Planning**: Drag waypoints on web-based map
-3. **Automatic Optimization**: LLM suggests improvements based on weather/fuel
-4. **Safety Validation**: All plans checked against flight envelope
-5. **Upload**: Missions sent to autopilot via radio link
+# Testing and validation
+npm test                        # Run test suite
+npm run lint                    # Code quality checking
+npm run build                   # Production build
 
-### Autonomous Flight Sequence
-1. **Pre-flight**: Automatic system checks and weather evaluation
-2. **Takeoff**: Autonomous engine start and departure
-3. **Mission**: Waypoint navigation with environmental data collection
-4. **Adaptation**: Real-time mission modification based on conditions
-5. **Return**: Automatic navigation to landing location
-6. **Landing**: Autonomous approach and touchdown
+# Debugging and analysis
+npm run logs:errors             # Focus on error messages
+./scripts/logs.sh search "GPS"  # Debug specific functionality
+```
 
-### Environmental Data Collection
-- **Real-time logging**: High-frequency sensor data to SD card
-- **Telemetry stream**: Live data broadcast to ground station
-- **LLM analysis**: Intelligent interpretation of atmospheric conditions
-- **Mission optimization**: Dynamic flight path adjustments
-- **Data export**: Scientific-grade data formats for research
+## 🛩️ **Flight Operations**
 
-## 🔒 Safety Systems
+### **🎯 Mission Planning Workflow**
+1. **🗺️ Interactive Planning** - Click waypoints directly on the map
+2. **🧠 LLM Optimization** - AI suggests improvements based on weather/performance
+3. **✅ Safety Validation** - Automatic checks against flight envelope and regulations
+4. **📡 Upload to Aircraft** - Secure transmission via radio link
+5. **👁️ Real-time Monitoring** - Live mission progress with adaptive replanning
 
-### Multi-layer Safety Architecture
-1. **Hardware Watchdog**: Independent monitoring circuit
-2. **Flight Control**: Core stability and control loops (highest priority)
-3. **Navigation**: Geofencing and obstacle avoidance
-4. **Mission Logic**: Goal execution with safety constraints
-5. **Ground Oversight**: Human monitoring and intervention capability
-6. **LLM Advisory**: Intelligent suggestions with mandatory validation
+### **🤖 Autonomous Flight Sequence**
+1. **🔍 Pre-flight Checks** - Automated system verification and weather analysis
+2. **🛫 Smart Takeoff** - Intelligent departure with obstacle avoidance
+3. **🎯 Mission Execution** - Waypoint navigation with real-time optimization
+4. **🔄 Adaptive Planning** - Dynamic mission modification based on conditions
+5. **🏠 Intelligent Return** - Optimized route planning for landing approach
+6. **🛬 Automated Landing** - Precision approach with safety monitoring
 
-### Emergency Procedures
-- **Lost Link**: Automatic return-to-home
-- **Low Power**: Emergency landing at nearest safe location
-- **Weather Deterioration**: Automatic diversion or early return
-- **Sensor Failure**: Graceful degradation and safe landing
-- **System Error**: Fail-safe mode with basic stability control
+### **📊 Real-time Data Collection**
+- **📈 High-frequency Logging** - Multi-sensor data to onboard storage
+- **📡 Live Telemetry Stream** - Real-time data broadcast to ground station
+- **🧠 Intelligent Analysis** - LLM-powered interpretation of sensor readings
+- **🎯 Adaptive Sampling** - Dynamic measurement strategies based on conditions
+- **📁 Research-grade Export** - Scientific data formats for analysis
 
-## 🧪 Scientific Applications
+## 🔒 **Advanced Safety Systems**
 
-### SUMO (Small Unmanned Meteorological Observer)
-Enhanced version of the atmospheric research platform:
-- **Advanced Sensors**: Temperature, humidity, pressure, air quality
-- **Extended Range**: LoRa communication for long-distance missions
-- **Intelligent Sampling**: LLM-guided measurement point selection
-- **Data Quality**: Real-time data validation and quality control
-- **Mission Continuity**: Autonomous operation in harsh environments
+### **🛡️ Multi-layer Safety Architecture**
+1. **⚡ Hardware Watchdog** - Independent monitoring circuit (highest priority)
+2. **🎮 Flight Control Core** - Real-time stability and control loops  
+3. **🗺️ Navigation Safety** - Geofencing and collision avoidance
+4. **🎯 Mission Logic** - Goal execution with safety constraint validation
+5. **👁️ Ground Oversight** - Human monitoring with intervention capability
+6. **🧠 LLM Advisory** - Intelligent suggestions with mandatory safety validation
 
-### Research Applications
-- **Atmospheric Boundary Layer**: Temperature and wind profiling
-- **Air Quality Monitoring**: Pollution measurement and mapping
-- **Climate Research**: Long-term atmospheric data collection
-- **Weather Station Networks**: Automated meteorological observations
-- **Polar Research**: Extreme environment data collection
+### **🚨 Emergency Response Procedures**
+- **📡 Lost Link Protocol** - Automatic return-to-home with alternate landing sites
+- **🔋 Low Power Management** - Predictive landing at nearest safe location
+- **🌦️ Weather Degradation** - Automatic diversion with real-time replanning
+- **⚠️ Sensor Failure Handling** - Graceful degradation with backup systems
+- **🛑 System Error Recovery** - Fail-safe mode with basic stability maintenance
 
-## 🔗 Links and Resources
+## 🧪 **Scientific Research Applications**
 
-### Documentation
-- [Architecture Guide](./ARCHITECTURE.md) - Detailed system design
-- [LLM Integration Guide](./LLM_GUIDANCE.md) - Working with the AI assistant
-- [Hardware Setup](./docs/hardware-setup.md) - Autopilot configuration
-- [Mission Planning](./docs/mission-planning.md) - Flight plan creation
+### **🌡️ SUMO Enhanced (Small Unmanned Meteorological Observer)**
+Next-generation atmospheric research platform:
 
-### Original Paparazzi Project
-- [Official Website](http://paparazzi.enac.fr) - Original project information
-- [Hardware Wiki](https://wiki.paparazziuav.org/wiki/Hardware) - Autopilot boards
-- [SUMO Project](https://wiki.paparazziuav.org/wiki/SUMO) - Atmospheric research platform
+- **📊 Advanced Sensor Suite** - Temperature, humidity, pressure, air quality, wind
+- **📡 Extended Communication** - LoRa for long-range missions beyond radio horizon
+- **🧠 Intelligent Sampling** - LLM-guided measurement point selection and optimization
+- **✅ Real-time Validation** - Automated data quality control and anomaly detection
+- **🌨️ Extreme Environment** - Autonomous operation in harsh weather conditions
 
-### Community
-- [GitHub Issues](https://github.com/bmw330i/paparazzi/issues) - Bug reports and feature requests
-- [Discussions](https://github.com/bmw330i/paparazzi/discussions) - Community support
-- [Contributing](./CONTRIBUTING.md) - How to contribute to the project
+### **🔬 Research Capabilities**
+- **🌤️ Atmospheric Boundary Layer** - Vertical temperature and wind profiling
+- **🏭 Air Quality Monitoring** - Pollution measurement and real-time mapping
+- **📈 Climate Research** - Long-term atmospheric data collection and analysis
+- **🌡️ Weather Station Networks** - Automated meteorological observations
+- **🧊 Polar Research** - Extreme environment data collection with remote operation
 
-## 📄 License
+## 📚 **Documentation & Resources**
 
-This project maintains the GPL license of the original Paparazzi project. The modernization and LLM integration components are released under the same GPL v2+ license.
+### **📖 Technical Documentation**
+- **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Detailed system design and data flows
+- **[LLM_INTEGRATION.md](./LLM_INTEGRATION.md)** - Model Context Protocol implementation
+- **[MAPPING_SYSTEM.md](./MAPPING_SYSTEM.md)** - Interactive mapping architecture
+- **[SERVICE_MANAGEMENT.md](./SERVICE_MANAGEMENT.md)** - Background services guide
 
-**Copyright**: Original Paparazzi team + bmw330i Next-Gen modernization (2025)
+### **🎓 User Guides**
+- **[QUICK_START.md](./docs/quick-start.md)** - Getting started tutorial
+- **[MISSION_PLANNING.md](./docs/mission-planning.md)** - Flight plan creation
+- **[HARDWARE_SETUP.md](./docs/hardware-setup.md)** - Autopilot configuration
+- **[TROUBLESHOOTING.md](./docs/troubleshooting.md)** - Common issues and solutions
+
+### **🌐 External Resources**
+- **[Original Paparazzi Project](http://paparazzi.enac.fr)** - Heritage system information
+- **[Hardware Compatibility Wiki](https://wiki.paparazziuav.org/wiki/Hardware)** - Supported autopilot boards
+- **[SUMO Research Platform](https://wiki.paparazziuav.org/wiki/SUMO)** - Atmospheric research background
+
+## 🤝 **Community & Support**
+
+### **💬 Getting Help**
+- **[GitHub Issues](https://github.com/bmw330i/paparazzi/issues)** - Bug reports and feature requests
+- **[Discussions](https://github.com/bmw330i/paparazzi/discussions)** - Community support and ideas
+- **[Contributing Guide](./CONTRIBUTING.md)** - How to contribute to the project
+
+### **🏆 Contributing**
+We welcome contributions! Areas of particular interest:
+- **🗺️ Enhanced mapping features** (satellite imagery, terrain analysis)
+- **🧠 Advanced LLM capabilities** (mission planning, safety analysis)
+- **📱 Mobile applications** (companion apps, field tools)
+- **🔬 Scientific instruments** (specialized sensor integration)
+- **🌐 Multi-aircraft coordination** (swarm intelligence, collaborative missions)
+
+## 📄 **License & Legal**
+
+This project maintains the **GPL v2+** license of the original Paparazzi project. All modernization components, including the React GCS, mapping system, LLM integration, and service management tools are released under the same GPL v2+ license.
+
+**Copyright**: Original Paparazzi team (1999-2024) + bmw330i Next-Gen modernization (2025)
+
+## ⚠️ **Safety & Legal Notice**
+
+**⚠️ IMPORTANT**: This is experimental software for autonomous aircraft operation. 
+
+### **📋 Safety Requirements:**
+- ✅ Always follow local aviation regulations and airspace restrictions
+- ✅ Maintain visual line of sight when required by law
+- ✅ Ensure proper insurance and legal compliance for UAV operations
+- ✅ Implement proper safety protocols and emergency procedures
+- ✅ The LLM assistant provides guidance only - never replace proper flight planning
+
+### **🛡️ Liability Disclaimer:**
+This software is provided "as-is" without warranty. Users are solely responsible for safe operation, legal compliance, and proper risk management. The LLM integration is advisory only and should not replace human judgment in safety-critical situations.
 
 ---
 
-**⚠️ Safety Notice**: This is experimental software for autonomous aircraft. Always follow local aviation regulations, maintain visual contact when required by law, and ensure proper safety protocols are in place. The LLM assistant is for guidance only and should not replace proper flight planning and safety procedures.
+**🎯 Ready to Experience the Future of UAV Operations?**
+
+Start your journey with modern, intelligent, autonomous flight:
+
+```bash
+git clone https://github.com/bmw330i/paparazzi.git
+cd paparazzi
+npm run setup
+npm run services:start
+open http://localhost:3000
+```
+
+*Welcome to the future of autonomous atmospheric research! 🚁✨*

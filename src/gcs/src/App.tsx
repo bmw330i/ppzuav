@@ -3,6 +3,7 @@ import './App.css';
 import TelemetryDisplay from './components/TelemetryDisplay';
 import MapView from './components/MapView';
 import MissionControl from './components/MissionControl';
+import MissionPlanner from './components/MissionPlanner';
 import LLMChat from './components/LLMChat';
 import AlertPanel from './components/AlertPanel';
 import { WebSocketProvider } from './context/WebSocketContext';
@@ -11,7 +12,7 @@ import { DemoDataGenerator } from './services/DemoDataGenerator';
 
 function App() {
   const [selectedAircraft, setSelectedAircraft] = useState('sumo_001');
-  const [view, setView] = useState<'map' | 'telemetry' | 'mission' | 'chat'>('map');
+  const [view, setView] = useState<'map' | 'telemetry' | 'mission' | 'planner' | 'chat'>('map');
   const [demoMode, setDemoMode] = useState(false);
   const [demoGenerator] = useState(() => new DemoDataGenerator());
 
@@ -60,6 +61,12 @@ function App() {
               Mission
             </button>
             <button 
+              className={view === 'planner' ? 'active' : ''}
+              onClick={() => setView('planner')}
+            >
+              🎯 Planner
+            </button>
+            <button 
               className={view === 'chat' ? 'active' : ''}
               onClick={() => setView('chat')}
             >
@@ -96,6 +103,7 @@ function App() {
             {view === 'map' && <MapView aircraftId={selectedAircraft} />}
             {view === 'telemetry' && <TelemetryDisplay aircraftId={selectedAircraft} />}
             {view === 'mission' && <MissionControl aircraftId={selectedAircraft} />}
+            {view === 'planner' && <MissionPlanner />}
             {view === 'chat' && <LLMChat aircraftId={selectedAircraft} />}
           </div>
           

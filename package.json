@@ -1,7 +1,7 @@
 {
   "name": "paparazzi-nextgen",
-  "version": "5.0.0",
-  "description": "Modernized Paparazzi UAV system with Node.js backend and LLM integration",
+  "version": "4.0.0",
+  "description": "Next-generation Paparazzi UAV system with OCaml-free architecture, LLM integration, interactive real-time mapping, and professional background service management",
   "main": "dist/index.js",
   "type": "module",
   "engines": {
@@ -34,7 +34,10 @@
     "setup:subprojects": "cd src/gcs && npm install && cd ../mcp-server && npm install && cd ../message-broker && npm install",
     "docker:build": "docker build -t paparazzi-nextgen .",
     "docker:dev": "docker-compose -f docker/docker-compose.dev.yml up",
-    "load-mission": "node scripts/load-mission.js"
+    "load-mission": "node scripts/load-mission.js",
+    "logs": "./scripts/logs.sh",
+    "logs:tail": "./scripts/logs.sh tail",
+    "logs:errors": "./scripts/logs.sh errors"
   },
   "keywords": [
     "uav",
