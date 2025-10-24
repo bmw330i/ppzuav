@@ -132,3 +132,6 @@
 {"timestamp":"2025-10-24T23:18:02.891Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
 {"timestamp":"2025-10-24T23:18:03.026Z","level":"INFO","component":"BROKER","message":"Shutting down message broker..."}
 {"timestamp":"2025-10-24T23:18:03.027Z","level":"INFO","component":"BROKER","message":"Message broker stopped"}
+{"timestamp":"2025-10-24T23:19:09.883Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:19:09.885Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:19:09.885Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
