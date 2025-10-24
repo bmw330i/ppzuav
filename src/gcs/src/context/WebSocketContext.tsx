@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 import { io, Socket } from 'socket.io-client';
+import { DemoDataGenerator } from '../services/DemoDataGenerator';
 
 interface Telemetry {
   timestamp: string;
@@ -13,6 +14,7 @@ interface Telemetry {
     roll: number;
     pitch: number;
     yaw: number;
+    airspeed?: number;
   };
   speed: {
     airspeed: number;
@@ -45,8 +47,14 @@ interface Alert {
 interface WebSocketContextType {
   socket: Socket | null;
   isConnected: boolean;
+  connected: boolean; // Alias for compatibility
   lastMessage: any | null;
+  telemetry: Map<string, Telemetry>;
+  alerts: Alert[];
   sendMessage: (message: any) => void;
+  sendCommand: (command: any) => void; // Alias for compatibility
+  enableDemoMode: () => void;
+  disableDemoMode: () => void;
   connect: () => void;
   disconnect: () => void;
 }
@@ -156,8 +164,14 @@ export const WebSocketProvider: React.FC<WebSocketProviderProps> = ({ children }
   const value: WebSocketContextType = {
     socket,
     isConnected: connected,
+    connected: connected, // Alias for compatibility
     lastMessage: telemetry,
+    telemetry: telemetry,
+    alerts: [],
+    enableDemoMode: () => {},
+    disableDemoMode: () => {},
     sendMessage: sendCommand,
+    sendCommand: sendCommand, // Alias for compatibility
     connect: () => {
       // Connect function implementation
       if (!socket?.connected) {

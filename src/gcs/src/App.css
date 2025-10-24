@@ -40,15 +40,130 @@ body {
   flex-direction: column;
 }
 
+/* Header Styles */
+.app-header {
+  background-color: var(--secondary-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-left h1 {
+  color: var(--accent-blue);
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.version {
+  background-color: var(--accent-green);
+  color: var(--primary-bg);
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.header-nav {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.header-nav button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--tertiary-bg);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.header-nav button:hover {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.header-nav button.active {
+  background-color: var(--accent-blue);
+  color: white;
+  border-color: var(--accent-blue);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.aircraft-selector {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--tertiary-bg);
+  color: var(--text-primary);
+}
+
+.connection-status {
+  font-size: 1.2rem;
+}
+
+.connection-status.online {
+  color: var(--success);
+}
+
+.connection-status.offline {
+  color: var(--error);
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
 .main-content {
   flex: 1;
-  display: grid;
-  grid-template-columns: 300px 1fr 400px;
-  grid-template-rows: 1fr 300px;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
   overflow: hidden;
 }
+
+.sidebar {
+  width: 400px;
+  padding: 1rem;
+  background-color: var(--secondary-bg);
+  border-left: 1px solid var(--border-color);
+  overflow-y: auto;
+}
+
+/* Footer */
+.app-footer {
+  background-color: var(--secondary-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  flex-shrink: 0;
+}
+
+.footer-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+
 
 /* Component Containers */
 .component-panel {

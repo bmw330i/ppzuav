@@ -12,29 +12,33 @@ interface Alert {
   source: string;
 }
 
-const AlertPanel: React.FC = () => {
-  const telemetry = useTelemetry();
+interface AlertPanelProps {
+  aircraftId: string;
+}
+
+const AlertPanel: React.FC<AlertPanelProps> = ({ aircraftId }) => {
+  const { currentTelemetry } = useTelemetry();
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [filter, setFilter] = useState<'all' | Alert['severity']>('all');
   const [showAcknowledged, setShowAcknowledged] = useState(false);
 
   // Generate alerts based on telemetry data
   useEffect(() => {
-    if (!telemetry) return;
+    if (!currentTelemetry) return;
 
     const newAlerts: Alert[] = [];
     const now = new Date().toISOString();
 
     // Battery alerts
-    if (telemetry.battery?.percentage !== undefined) {
-      if (telemetry.battery.percentage < 20) {
+    if (currentTelemetry.systems?.battery !== undefined) {
+      if (currentTelemetry.systems.battery < 20) {
         newAlerts.push({
-          id: `battery_${telemetry.battery.percentage}`,
+          id: `battery_${currentTelemetry.systems.battery}`,
           timestamp: now,
-          severity: telemetry.battery.percentage < 10 ? 'critical' : 'warning',
+          severity: currentTelemetry.systems.battery < 10 ? 'critical' : 'warning',
           category: 'battery',
           title: 'Low Battery',
-          message: `Battery at ${telemetry.battery.percentage}%. Consider returning to base.`,
+          message: `Battery at ${currentTelemetry.systems.battery}%. Consider returning to base.`,
           acknowledged: false,
           source: 'Battery Monitor',
         });
@@ -42,43 +46,43 @@ const AlertPanel: React.FC = () => {
     }
 
     // GPS alerts
-    if (telemetry.gps?.satellites !== undefined && telemetry.gps.satellites < 6) {
+    if (currentTelemetry.systems?.gpsSatellites !== undefined && currentTelemetry.systems.gpsSatellites < 6) {
       newAlerts.push({
-        id: `gps_${telemetry.gps.satellites}`,
+        id: `gps_${currentTelemetry.systems.gpsSatellites}`,
         timestamp: now,
-        severity: telemetry.gps.satellites < 4 ? 'warning' : 'info',
+        severity: currentTelemetry.systems.gpsSatellites < 4 ? 'warning' : 'info',
         category: 'system',
         title: 'GPS Signal',
-        message: `Only ${telemetry.gps.satellites} satellites available. Navigation accuracy may be reduced.`,
+        message: `Only ${currentTelemetry.systems.gpsSatellites} satellites available. Navigation accuracy may be reduced.`,
         acknowledged: false,
         source: 'GPS System',
       });
     }
 
     // Communication alerts
-    if (telemetry.communication?.rssi !== undefined && telemetry.communication.rssi < -90) {
+    if (currentTelemetry.systems?.datalinkRssi !== undefined && currentTelemetry.systems.datalinkRssi < -90) {
       newAlerts.push({
-        id: `comm_${telemetry.communication.rssi}`,
+        id: `comm_${currentTelemetry.systems.datalinkRssi}`,
         timestamp: now,
-        severity: telemetry.communication.rssi < -100 ? 'warning' : 'info',
+        severity: currentTelemetry.systems.datalinkRssi < -100 ? 'warning' : 'info',
         category: 'communication',
         title: 'Weak Signal',
-        message: `Communication signal at ${telemetry.communication.rssi} dBm. Risk of connection loss.`,
+        message: `Communication signal at ${currentTelemetry.systems.datalinkRssi} dBm. Risk of connection loss.`,
         acknowledged: false,
         source: 'Radio Link',
       });
     }
 
     // Flight envelope alerts
-    if (telemetry.attitude?.airspeed !== undefined) {
-      if (telemetry.attitude.airspeed > 25) { // Assuming max safe speed
+    if (currentTelemetry.attitude?.airspeed !== undefined) {
+      if (currentTelemetry.attitude.airspeed > 25) { // Assuming max safe speed
         newAlerts.push({
-          id: `speed_${telemetry.attitude.airspeed}`,
+          id: `speed_${currentTelemetry.attitude.airspeed}`,
           timestamp: now,
           severity: 'warning',
           category: 'flight',
           title: 'High Airspeed',
-          message: `Airspeed ${telemetry.attitude.airspeed.toFixed(1)} m/s exceeds recommended maximum.`,
+          message: `Airspeed ${currentTelemetry.attitude.airspeed.toFixed(1)} m/s exceeds recommended maximum.`,
           acknowledged: false,
           source: 'Flight Controller',
         });
@@ -105,7 +109,7 @@ const AlertPanel: React.FC = () => {
         new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
       );
     });
-  }, [telemetry]);
+  }, [currentTelemetry]);
 
   const acknowledgeAlert = (alertId: string) => {
     setAlerts(prev => prev.map(alert => 

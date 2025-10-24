@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { useWebSocket } from './WebSocketContext';
-import { TelemetrySchema } from '../../../types/core';
-import type { Telemetry } from '../../../types/core';
+import { TelemetrySchema } from '../types/core';
+import type { Telemetry } from '../types/core';
 
 interface TelemetryContextType {
   currentTelemetry: Telemetry | null;

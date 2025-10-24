@@ -238,3 +238,51 @@ export const SafetyAlertSchema = z.object({
 });
 
 export type SafetyAlert = z.infer<typeof SafetyAlertSchema>;
+
+// Flight simulation types
+export const FlightStateSchema = z.object({
+  position: PositionSchema,
+  velocity: z.object({
+    north: z.number(), // m/s
+    east: z.number(), // m/s
+    down: z.number(), // m/s
+  }),
+  attitude: AttitudeSchema,
+  airspeed: z.number(), // m/s
+  groundspeed: z.number(), // m/s
+  verticalSpeed: z.number(), // m/s
+  throttle: z.number().min(0).max(100), // percentage
+  controlSurfaces: z.object({
+    aileron: z.number().min(-1).max(1),
+    elevator: z.number().min(-1).max(1),
+    rudder: z.number().min(-1).max(1),
+  }),
+});
+
+export type FlightState = z.infer<typeof FlightStateSchema>;
+
+export const NavigationCommandSchema = z.object({
+  type: z.enum(['altitude', 'heading', 'airspeed', 'waypoint']),
+  value: z.number(),
+  timestamp: z.string(),
+});
+
+export type NavigationCommand = z.infer<typeof NavigationCommandSchema>;
+
+export const SimulatorConfigSchema = z.object({
+  port: z.number(),
+  simulationFrequency: z.number().default(50), // Hz
+  enableFlightGear: z.boolean().default(false),
+  realtimeFactor: z.number().default(1.0), // 1.0 = real time
+});
+
+export type SimulatorConfig = z.infer<typeof SimulatorConfigSchema>;
+
+export const SimulationStateSchema = z.object({
+  isRunning: z.boolean(),
+  totalTime: z.number(), // seconds
+  flightPhase: z.enum(['ground', 'takeoff', 'climb', 'cruise', 'descent', 'approach', 'landing']),
+  lastCommandTime: z.string().optional(),
+});
+
+export type SimulationState = z.infer<typeof SimulationStateSchema>;

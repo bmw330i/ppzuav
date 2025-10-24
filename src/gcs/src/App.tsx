@@ -6,14 +6,34 @@ import MissionControl from './components/MissionControl';
 import LLMChat from './components/LLMChat';
 import AlertPanel from './components/AlertPanel';
 import { WebSocketProvider } from './context/WebSocketContext';
+import { TelemetryProvider } from './context/TelemetryContext';
+import { DemoDataGenerator } from './services/DemoDataGenerator';
 
 function App() {
   const [selectedAircraft, setSelectedAircraft] = useState('sumo_001');
   const [view, setView] = useState<'map' | 'telemetry' | 'mission' | 'chat'>('map');
+  const [demoMode, setDemoMode] = useState(false);
+  const [demoGenerator] = useState(() => new DemoDataGenerator());
+
+  // Handle demo mode toggle
+  useEffect(() => {
+    if (demoMode) {
+      demoGenerator.start();
+      setSelectedAircraft('demo_aircraft');
+    } else {
+      demoGenerator.stop();
+      setSelectedAircraft('sumo_001');
+    }
+    
+    return () => {
+      demoGenerator.stop();
+    };
+  }, [demoMode, demoGenerator]);
 
   return (
     <WebSocketProvider>
-      <div className="App">
+      <TelemetryProvider aircraftId={selectedAircraft}>
+        <div className="app">
         <header className="app-header">
           <div className="header-left">
             <h1>🚁 Paparazzi Next-Gen</h1>
@@ -48,12 +68,23 @@ function App() {
           </nav>
 
           <div className="header-right">
+            <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
+              <input
+                type="checkbox"
+                checked={demoMode}
+                onChange={(e) => setDemoMode(e.target.checked)}
+              />
+              Demo Mode
+            </label>
+            
             <select 
               value={selectedAircraft} 
               onChange={(e) => setSelectedAircraft(e.target.value)}
               className="aircraft-selector"
+              disabled={demoMode}
             >
               <option value="sumo_001">SUMO-001</option>
+              <option value="demo_aircraft">Demo Aircraft</option>
               <option value="sim_aircraft_001">Simulator</option>
             </select>
             <div className="connection-status online">●</div>
@@ -80,7 +111,8 @@ function App() {
             <span>Last Update: {new Date().toLocaleTimeString()}</span>
           </div>
         </footer>
-      </div>
+        </div>
+      </TelemetryProvider>
     </WebSocketProvider>
   );
 }
