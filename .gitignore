@@ -182,3 +182,43 @@ tests/results/*
 sw/logalizer/plotprofile.dSYM/Contents/Resources/DWARF/plotprofile
 
 sw/logalizer/plotprofile.dSYM/Contents/Info.plist
+
+# Node.js Next-Gen additions
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files (additional)
+.vscode/
+.idea/
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# TypeScript
+*.tsbuildinfo
+
+# Next.js and modern JS build outputs
+.next
+.nuxt
+
+# Docker
+.dockerignore
+
+# Generated files
+src/generated/
