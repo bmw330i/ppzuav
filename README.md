@@ -1,28 +1,118 @@
-Paparazzi UAS
-=============
+# Paparazzi Next-Gen UAV System
 
-Paparazzi is an attempt to develop a free software Unmanned (Air) Vehicle System.
- As of today the system is being used successfuly by a number of hobyists, universities and companies all over the world, on vehicle of various size ( 100g to 25Kg ) and of various nature ( fixed wing, rotorcrafts, boats and surface vehicles).
+## Overview
 
-Up to date information is available in the wiki http://paparazzi.enac.fr
+Paparazzi Next-Gen is a modernized version of the open-source Paparazzi UAV system, rebuilt from the ground up to eliminate OCaml dependencies and embrace autonomous flight with LLM-assisted mission management. This fork maintains full compatibility with existing ARM7 and STM32-based autopilot hardware while providing a cutting-edge Node.js and web-based ground control system.
 
-and from the mailing list [paparazzi-devel@nongnu.org] (http://savannah.nongnu.org/mail/?group=paparazzi)
-and the IRC channel (freenode, #paparazzi).
+**🎯 Key Innovation**: Integration of Large Language Models (LLMs) through a Model Context Protocol (MCP) server, enabling intelligent mission planning, real-time atmospheric analysis, and autonomous decision-making for scientific research flights.
 
+## 🆕 What's New in Next-Gen
 
-Required Software
------------------
+### ✅ Modernized Technology Stack
+- **Eliminated OCaml dependencies** - Now pure Node.js + Web technologies
+- **Native macOS M4 support** - Optimized for Apple Silicon
+- **Modern web-based GCS** - React/Vue.js with WebGL visualization
+- **Real-time telemetry** - WebSocket/MQTT message broker
+- **Docker containerization** - Easy deployment and development
 
-Installation is described in the wiki (http://paparazzi.enac.fr/wiki/Installation).
+### 🤖 LLM Integration
+- **MCP Server** - Structured communication protocol for LLM-autopilot interaction
+- **Intelligent mission planning** - Natural language flight plan creation
+- **Real-time optimization** - Atmospheric condition adaptation
+- **Safety oversight** - Anomaly detection and response suggestions
+- **Meteorological analysis** - Perfect for atmospheric research missions
 
-For Ubuntu users, required packages are available in the [paparazzi-uav PPA] (https://launchpad.net/~paparazzi-uav/+archive/ppa),
-Debian users can use http://paparazzi.enac.fr/debian
+### 🛩️ Enhanced Autonomy
+- **No RC dependency** - Fully autonomous operation from takeoff to landing
+- **Dynamic home location** - Updateable base positions
+- **One-way missions** - Different takeoff and landing locations
+- **Weather adaptation** - Intelligent response to changing conditions
+- **Mission continuity** - Complete operations without human intervention
 
+## 🎯 Primary Use Cases
 
-- **paparazzi-dev** is the meta-package that depends on everything needed to compile and run the ground segment and the simulator.
-- **paparazzi-arm-multilib** ARM cross-compiling toolchain for LPC21 and STM32 based boards.
-- **paparazzi-omap** toolchain for the optional Gumstix Overo module available on lisa/L.
-- **paparazzi-jsbsim** is needed for using JSBSim as flight dynamic model for the simulator.
+### 1. Atmospheric Research (SUMO-style)
+Perfect for scientific missions with miniaturized environmental sensors:
+- Temperature, humidity, pressure profiling
+- Air quality monitoring (CO2, particulates)
+- Meteorological data collection
+- Research station support in remote locations
+- LLM-guided mission optimization based on atmospheric conditions
+
+### 2. Autonomous Surveillance
+- Perimeter monitoring
+- Wildlife tracking
+- Infrastructure inspection
+- Search and rescue operations
+
+### 3. Educational Platform
+- University research projects
+- Autonomous systems development
+- Atmospheric science education
+- AI/ML integration studies
+
+## 🛠️ Hardware Compatibility
+
+### Supported Autopilot Boards
+- **Lisa/L** - STM32F4 with integrated IMU and GPS
+- **Lisa/M** - STM32F4 with basic sensor suite
+- **Umarim Lite v2** - ARM7 with external sensors
+- **TWOG** - ARM7 with data logging capabilities
+- **Custom STM32** - F1/F4/F7 series compatible
+
+### Communication Hardware
+- **XBee Pro** - 900MHz/2.4GHz long-range telemetry
+- **LoRa modules** - 868MHz/915MHz alternative
+- **WiFi** - Short-range development and testing
+
+### Environmental Sensors (SUMO Configuration)
+- **Temperature**: High-precision digital sensors
+- **Humidity**: Capacitive humidity sensors
+- **Pressure**: Barometric pressure for altitude and weather
+- **Air Quality**: CO2, PM2.5, PM10 sensors
+- **Wind**: Airspeed and direction measurement
+
+## 🚀 Quick Start (macOS M4)
+
+### Prerequisites
+```bash
+# Install Node.js (v18+)
+brew install node
+
+# Install development tools
+brew install git cmake
+
+# Install ARM toolchain for autopilot firmware
+brew install --cask gcc-arm-embedded
+```
+
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/bmw330i/paparazzi.git
+cd paparazzi
+
+# Install dependencies
+npm install
+
+# Build the system
+npm run build
+
+# Start the ground control station
+npm run gcs
+```
+
+### First Flight Simulation
+```bash
+# Start the simulator
+npm run sim
+
+# Open GCS in browser
+open http://localhost:3000
+
+# Load example mission
+npm run load-mission examples/microjet_demo.json
+```
 
 
 Directories quick and dirty description:
