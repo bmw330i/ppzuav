@@ -19,7 +19,7 @@ import { GPSSimulator } from './gps-simulator.js';
 import { EnvironmentModel } from './environment-model.js';
 import { FlightPlanExecutor } from './flight-plan-executor.js';
 import { TelemetryGenerator } from './telemetry-generator.js';
-import { simulatorLogger as logger } from '../utils/logger.js';
+import { simulatorLogger as logger } from '../utils/file-logger.js';
 import type { 
   SimulatorConfig, 
   SimulationState, 
@@ -139,7 +139,9 @@ export class FlightSimulator {
           const message = JSON.parse(data.toString());
           this.handleWebSocketMessage(ws, message);
         } catch (error) {
-          logger.error('Invalid WebSocket message', { error: error.message });
+          logger.error('Invalid WebSocket message', { 
+            error: error instanceof Error ? error.message : String(error) 
+          });
         }
       });
       

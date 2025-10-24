@@ -78,7 +78,7 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
       setGroundStationLocation(location);
       
       // If no aircraft telemetry yet, center map on ground station
-      if (!currentTelemetry) {
+      if (!currentTelemetry && !showDemo) {
         setMapCenter(location.position);
         setMapZoom(geoService.getRecommendedZoom());
       }
@@ -87,7 +87,33 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
     });
 
     return unsubscribe;
-  }, [currentTelemetry]);
+  }, [currentTelemetry, showDemo]);
+
+  // Demo mode management
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    
+    if (showDemo) {
+      // Generate initial demo data
+      setDemoTelemetry(demoDataGenerator.generateTelemetry());
+      
+      // Update demo data every 500ms
+      interval = setInterval(() => {
+        const newDemoTelemetry = demoDataGenerator.generateTelemetry();
+        console.log('Generated demo telemetry:', newDemoTelemetry);
+        setDemoTelemetry(newDemoTelemetry);
+      }, 500);
+    } else {
+      setDemoTelemetry(null);
+      setFlightPath([]); // Clear flight path when switching modes
+    }
+    
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [showDemo, demoDataGenerator]);
 
   // Update flight path when telemetry changes
   useEffect(() => {
@@ -132,7 +158,7 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
 
   return (
     <div className="component-panel" style={{ height: '100%' }}>
-      <h2>🗺️ Map View</h2>
+      <h2>🗺️ Map View {showDemo && '(Demo Mode)'}</h2>
       
             <div className="map-controls" style={{ marginBottom: '1rem', display: 'flex', gap: '1rem', alignItems: 'center' }}>
         <div className="connection-status">
@@ -141,7 +167,10 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
         </div>
         
         <button 
-          onClick={() => setShowDemo(!showDemo)}
+          onClick={() => {
+            console.log('Demo mode toggle clicked. Current state:', showDemo);
+            setShowDemo(!showDemo);
+          }}
           style={{ 
             padding: '0.25rem 0.5rem', 
             fontSize: '0.8rem',

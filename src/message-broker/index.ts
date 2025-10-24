@@ -9,7 +9,7 @@ import { WebSocketServer } from 'ws';
 import mqtt from 'mqtt';
 import { SerialPort } from 'serialport';
 import { ReadlineParser } from '@serialport/parser-readline';
-import { brokerLogger as logger } from '../utils/logger.js';
+import { brokerLogger as logger } from '../utils/file-logger.js';
 import { TelemetrySchema, CommandSchema } from '../types/core.js';
 import type { Telemetry, Command } from '../types/core.js';
 
@@ -176,7 +176,7 @@ export class MessageBroker {
         this.serialPorts.set(aircraftId, port);
       } catch (error) {
         logger.error(`Failed to open serial port ${path}`, { 
-          error: error.message, 
+          error: error instanceof Error ? error.message : String(error), 
           aircraftId 
         });
       }
@@ -202,10 +202,11 @@ export class MessageBroker {
           const command = CommandSchema.parse(message.data);
           this.sendCommand(command);
         } catch (error) {
-          logger.error('Invalid command format', { error: error.message });
+          const errorMessage = error instanceof Error ? error.message : String(error);
+          logger.error('Invalid command format', { error: errorMessage });
           ws.send(JSON.stringify({ 
             error: 'Invalid command format', 
-            details: error.message 
+            details: errorMessage 
           }));
         }
         break;
@@ -232,13 +233,13 @@ export class MessageBroker {
       if (telemetryData) {
         const topic = `paparazzi/telemetry/${aircraftId}`;
         this.broadcast(topic, telemetryData);
-        logger.telemetryReceived(aircraftId, 1);
+        logger.info('Telemetry received', { aircraftId, topic });
       }
     } catch (error) {
       logger.error('Failed to parse serial data', { 
         aircraftId, 
         data: data.slice(0, 100), // First 100 chars for debugging
-        error: error.message 
+        error: error instanceof Error ? error.message : String(error) 
       });
     }
   }
@@ -267,7 +268,10 @@ export class MessageBroker {
   }
 
   private sendCommand(command: Command): void {
-    logger.commandSent(command.commandType, command.destination);
+    logger.info('Command sent', { 
+      commandType: command.commandType, 
+      destination: command.destination 
+    });
 
     // Send via MQTT if available
     if (this.mqttClient?.connected) {

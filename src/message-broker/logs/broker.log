@@ -1,0 +1,134 @@
+{"timestamp":"2025-10-24T23:16:08.019Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:08.020Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:08.021Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:08.843Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:08.848Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:09.679Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:09.680Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:09.681Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:13.852Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:13.857Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:14.563Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:14.566Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:18.858Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:18.860Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:19.571Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:19.573Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:23.865Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:23.867Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:24.577Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:24.580Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:26.024Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:26.025Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:26.025Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:28.065Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:28.067Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:28.067Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:28.872Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:28.877Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:29.584Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:29.587Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:33.880Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:33.882Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:34.591Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:34.593Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:36.585Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:36.587Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:36.587Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:37.954Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:37.955Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:37.955Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:38.890Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:38.894Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:39.599Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:39.601Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:43.897Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:43.900Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:44.605Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:44.608Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:47.625Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:47.627Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:47.627Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:48.904Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:48.907Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:49.563Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:49.565Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:49.565Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:49.613Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:49.615Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:53.910Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:53.912Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:54.619Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:54.622Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:57.520Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:57.521Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:57.521Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:58.753Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:16:58.754Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:16:58.754Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:16:58.917Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:58.919Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:16:59.626Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:16:59.628Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:03.923Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:03.925Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:04.632Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:04.635Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:06.521Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:17:06.523Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:17:06.523Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:17:08.480Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
+{"timestamp":"2025-10-24T23:17:08.482Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
+{"timestamp":"2025-10-24T23:17:08.482Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:17:08.932Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:08.936Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:09.640Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:09.643Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:13.936Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:13.937Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:14.647Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:14.650Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:18.941Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:18.943Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:19.655Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:19.658Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:23.948Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:23.949Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:24.662Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:24.665Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:28.954Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:28.956Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:29.669Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:29.671Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:33.960Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:33.962Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:34.675Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:34.677Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:38.966Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:38.969Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:39.682Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:39.684Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:43.970Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:43.971Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:44.688Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:44.691Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:48.974Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:48.976Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:49.695Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:49.698Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:53.980Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:53.982Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:54.701Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:54.703Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:58.986Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:58.988Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:17:59.707Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:17:59.710Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:18:01.393Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:18:01.404Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:18:01.476Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:18:01.516Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:18:02.888Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:18:02.891Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:18:03.026Z","level":"INFO","component":"BROKER","message":"Shutting down message broker..."}
+{"timestamp":"2025-10-24T23:18:03.027Z","level":"INFO","component":"BROKER","message":"Message broker stopped"}
