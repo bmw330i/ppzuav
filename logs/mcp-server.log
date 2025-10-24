@@ -1,0 +1,17 @@
+
+> paparazzi-mcp-server@1.0.0 dev
+> nodemon --exec tsx src/index.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[32m[nodemon] starting `tsx src/index.ts`[39m
+sh: tsx: command not found
+[31m[nodemon] failed to start process, "tsx" exec not found[39m
+[31m[nodemon] Error
+    at Bus.<anonymous> (/Users/david/Documents/bmw330ipaparazzi/node_modules/nodemon/lib/nodemon.js:164:25)
+    at Bus.emit (node:events:520:35)
+    at ChildProcess.<anonymous> (/Users/david/Documents/bmw330ipaparazzi/node_modules/nodemon/lib/monitor/run.js:199:11)
+    at ChildProcess.emit (node:events:508:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:294:12)[39m

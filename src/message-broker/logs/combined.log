@@ -135,3 +135,35 @@
 {"timestamp":"2025-10-24T23:19:09.883Z","level":"INFO","component":"BROKER","message":"No MQTT broker configured, using internal message routing only"}
 {"timestamp":"2025-10-24T23:19:09.885Z","level":"INFO","component":"BROKER","message":"Message broker started on port 8080"}
 {"timestamp":"2025-10-24T23:19:09.885Z","level":"ERROR","component":"BROKER","message":"Serial port error on /dev/ttyUSB0","meta":{"error":"Error: No such file or directory, cannot open /dev/ttyUSB0","aircraftId":"aircraft_001"}}
+{"timestamp":"2025-10-24T23:19:13.878Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:13.880Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:14.049Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:14.051Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:18.883Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:18.885Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:19.054Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:19.055Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:23.889Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:23.890Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:24.058Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:24.059Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:28.895Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:28.898Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:29.063Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:29.065Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:33.901Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:33.904Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:34.067Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:34.069Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:38.907Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:38.910Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:39.073Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:39.075Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:43.913Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:43.917Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:44.078Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:44.079Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:48.919Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:48.922Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-24T23:19:49.082Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-24T23:19:49.083Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
