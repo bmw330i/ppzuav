@@ -115,45 +115,132 @@ npm run load-mission examples/microjet_demo.json
 ```
 
 
-Directories quick and dirty description:
-----------------------------------------
+## 📡 System Architecture
 
-_conf_: the configuration directory (airframe, radio, ... descriptions).
+The system follows a layered architecture prioritizing flight safety:
 
-_data_: where to put read-only data (e.g. maps, terrain elevation files, icons)
+```
+1. Flight Control Core (C on STM32/ARM7) - ALWAYS MAINTAINS AIRCRAFT CONTROL
+2. Navigation System - Waypoint following and obstacle avoidance  
+3. Mission Management - High-level autonomous goal execution
+4. Ground Station - Monitoring, telemetry, mission updates
+5. LLM Assistant - Advisory suggestions, mission optimization
+```
 
-_doc_: documentation (diagrams, manual source files, ...)
+**Safety Principle**: The LLM can NEVER directly control flight surfaces or override safety protocols. It provides intelligent suggestions that are validated against flight envelopes and safety constraints.
 
-_sw_: software (onboard, ground station, simulation, ...)
+## 💬 LLM Chat Interface
 
-_var_: products of compilation, cache for the map tiles, ...
+The integrated LLM provides natural language interaction for mission management:
 
+```
+Human: "Plan a temperature survey mission at 150m altitude covering the valley"
 
-Compilation and demo simulation
--------------------------------
+LLM: "I'll create a survey pattern with 8 waypoints covering the valley area at 150m. 
+Based on current wind conditions (8kt from SW), I recommend starting from the 
+downwind side to optimize fuel efficiency. Estimated flight time: 28 minutes."
+```
 
-1. type "make" in the top directory to compile all the libraries and tools.
+## 🔧 Development Environment
 
-2. "./paparazzi" to run the Paparazzi Center
+### Directory Structure (Modernized)
+```
+bmw330ipaparazzi/
+├── src/                    # Node.js source code
+│   ├── mcp-server/        # Model Context Protocol server
+│   ├── gcs/               # Web-based Ground Control Station
+│   ├── message-broker/    # MQTT/WebSocket telemetry
+│   └── tools/             # Build and configuration tools
+├── airborne/              # C code for autopilots (maintained)
+├── conf/                  # Configuration files (JSON format)
+├── data/                  # Maps, terrain data, mission files
+├── examples/              # Example missions and configurations
+├── docker/                # Container definitions
+└── docs/                  # Documentation and guides
+```
 
-3. Select the "Microjet" aircraft in the upper-left A/C combo box.
-  Select "sim" from upper-middle "target" combo box. Click "Build".
-  When the compilation is finished, select "Simulation" from
-  the upper-right session combo box and click "Execute".
+## 🛩️ Flight Operations
 
-4. In the GCS, wait about 10s for the aircraft to be in the "Holding point" navigation block.
-  Switch to the "Takeoff" block (lower-left blue airway button in the strip).
-  Takeoff with the green launch button.
+### Mission Planning
+1. **Natural Language**: Describe mission to LLM via chat
+2. **Visual Planning**: Drag waypoints on web-based map
+3. **Automatic Optimization**: LLM suggests improvements based on weather/fuel
+4. **Safety Validation**: All plans checked against flight envelope
+5. **Upload**: Missions sent to autopilot via radio link
 
-Uploading of the embedded software
-----------------------------------
+### Autonomous Flight Sequence
+1. **Pre-flight**: Automatic system checks and weather evaluation
+2. **Takeoff**: Autonomous engine start and departure
+3. **Mission**: Waypoint navigation with environmental data collection
+4. **Adaptation**: Real-time mission modification based on conditions
+5. **Return**: Automatic navigation to landing location
+6. **Landing**: Autonomous approach and touchdown
 
-1. Power the flight controller board while it is connected to the PC with the USB cable.
+### Environmental Data Collection
+- **Real-time logging**: High-frequency sensor data to SD card
+- **Telemetry stream**: Live data broadcast to ground station
+- **LLM analysis**: Intelligent interpretation of atmospheric conditions
+- **Mission optimization**: Dynamic flight path adjustments
+- **Data export**: Scientific-grade data formats for research
 
-2. From the Paparazzi center, select the "ap" target, and click "Upload".
+## 🔒 Safety Systems
 
+### Multi-layer Safety Architecture
+1. **Hardware Watchdog**: Independent monitoring circuit
+2. **Flight Control**: Core stability and control loops (highest priority)
+3. **Navigation**: Geofencing and obstacle avoidance
+4. **Mission Logic**: Goal execution with safety constraints
+5. **Ground Oversight**: Human monitoring and intervention capability
+6. **LLM Advisory**: Intelligent suggestions with mandatory validation
 
-Flight
-------
+### Emergency Procedures
+- **Lost Link**: Automatic return-to-home
+- **Low Power**: Emergency landing at nearest safe location
+- **Weather Deterioration**: Automatic diversion or early return
+- **Sensor Failure**: Graceful degradation and safe landing
+- **System Error**: Fail-safe mode with basic stability control
 
-1.  From the Paparazzi Center, select the flight session and ... do the same than in simulation !
+## 🧪 Scientific Applications
+
+### SUMO (Small Unmanned Meteorological Observer)
+Enhanced version of the atmospheric research platform:
+- **Advanced Sensors**: Temperature, humidity, pressure, air quality
+- **Extended Range**: LoRa communication for long-distance missions
+- **Intelligent Sampling**: LLM-guided measurement point selection
+- **Data Quality**: Real-time data validation and quality control
+- **Mission Continuity**: Autonomous operation in harsh environments
+
+### Research Applications
+- **Atmospheric Boundary Layer**: Temperature and wind profiling
+- **Air Quality Monitoring**: Pollution measurement and mapping
+- **Climate Research**: Long-term atmospheric data collection
+- **Weather Station Networks**: Automated meteorological observations
+- **Polar Research**: Extreme environment data collection
+
+## 🔗 Links and Resources
+
+### Documentation
+- [Architecture Guide](./ARCHITECTURE.md) - Detailed system design
+- [LLM Integration Guide](./LLM_GUIDANCE.md) - Working with the AI assistant
+- [Hardware Setup](./docs/hardware-setup.md) - Autopilot configuration
+- [Mission Planning](./docs/mission-planning.md) - Flight plan creation
+
+### Original Paparazzi Project
+- [Official Website](http://paparazzi.enac.fr) - Original project information
+- [Hardware Wiki](https://wiki.paparazziuav.org/wiki/Hardware) - Autopilot boards
+- [SUMO Project](https://wiki.paparazziuav.org/wiki/SUMO) - Atmospheric research platform
+
+### Community
+- [GitHub Issues](https://github.com/bmw330i/paparazzi/issues) - Bug reports and feature requests
+- [Discussions](https://github.com/bmw330i/paparazzi/discussions) - Community support
+- [Contributing](./CONTRIBUTING.md) - How to contribute to the project
+
+## 📄 License
+
+This project maintains the GPL license of the original Paparazzi project. The modernization and LLM integration components are released under the same GPL v2+ license.
+
+**Copyright**: Original Paparazzi team + bmw330i Next-Gen modernization (2025)
+
+---
+
+**⚠️ Safety Notice**: This is experimental software for autonomous aircraft. Always follow local aviation regulations, maintain visual contact when required by law, and ensure proper safety protocols are in place. The LLM assistant is for guidance only and should not replace proper flight planning and safety procedures.
