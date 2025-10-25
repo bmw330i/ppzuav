@@ -1,0 +1,92 @@
+/* ADS-B Display Styles */
+.adsb-display {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+}
+
+.adsb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.adsb-header h3 {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.connection-indicator.connected {
+  color: #4ade80;
+}
+
+.connection-indicator.disconnected {
+  color: #ef4444;
+}
+
+.adsb-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.demo-button {
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s;
+}
+
+.demo-button:hover {
+  background: var(--bg-secondary);
+}
+
+.demo-button.active {
+  background: var(--accent-color);
+  color: white;
+}
+
+.aircraft-count {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.collision-warnings {
+  padding: 1rem;
+  background: #fef2f2;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.aircraft-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.aircraft-item:hover {
+  background: var(--bg-secondary) !important;
+}
+
+.aircraft-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.aircraft-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

@@ -38,7 +38,7 @@ export const EnvironmentalSchema = z.object({
   pressure: z.number(),
   windSpeed: z.number(),
   windDirection: z.number(),
-}).optional();
+});
 
 // Telemetry Schema
 export const TelemetrySchema = z.object({
@@ -49,7 +49,7 @@ export const TelemetrySchema = z.object({
   attitude: AttitudeSchema,
   speed: SpeedSchema,
   systems: SystemsSchema,
-  environmental: EnvironmentalSchema,
+  environmental: EnvironmentalSchema.optional(),
 });
 
 // Command Schema
@@ -57,8 +57,8 @@ export const CommandSchema = z.object({
   aircraftId: z.string(),
   timestamp: z.string(),
   command: z.string(),
-  parameters: z.record(z.any()),
-  priority: z.enum(['low', 'normal', 'high', 'emergency']).default('normal'),
+  parameters: z.record(z.string(), z.any()),
+  priority: z.string(),
 });
 
 // Export types

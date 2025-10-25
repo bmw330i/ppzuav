@@ -6,13 +6,16 @@ import MissionControl from './components/MissionControl';
 import MissionPlanner from './components/MissionPlanner';
 import LLMChat from './components/LLMChat';
 import AlertPanel from './components/AlertPanel';
+import ADSBDisplay from './components/ADSBDisplay';
+import MCPIntegration from './components/MCPIntegration';
+import ADSBStatus from './components/ADSBStatus';
 import { WebSocketProvider } from './context/WebSocketContext';
 import { TelemetryProvider } from './context/TelemetryContext';
 import { DemoDataGenerator } from './services/DemoDataGenerator';
 
 function App() {
   const [selectedAircraft, setSelectedAircraft] = useState('sumo_001');
-  const [view, setView] = useState<'map' | 'telemetry' | 'mission' | 'planner' | 'chat'>('map');
+  const [view, setView] = useState<'map' | 'telemetry' | 'mission' | 'planner' | 'chat' | 'adsb' | 'mcp'>('map');
   const [demoMode, setDemoMode] = useState(false);
   const [demoGenerator] = useState(() => new DemoDataGenerator());
 
@@ -67,6 +70,18 @@ function App() {
               🎯 Planner
             </button>
             <button 
+              className={view === 'adsb' ? 'active' : ''}
+              onClick={() => setView('adsb')}
+            >
+              📡 ADS-B
+            </button>
+            <button 
+              className={view === 'mcp' ? 'active' : ''}
+              onClick={() => setView('mcp')}
+            >
+              🤖 AI Control
+            </button>
+            <button 
               className={view === 'chat' ? 'active' : ''}
               onClick={() => setView('chat')}
             >
@@ -104,6 +119,8 @@ function App() {
             {view === 'telemetry' && <TelemetryDisplay aircraftId={selectedAircraft} />}
             {view === 'mission' && <MissionControl aircraftId={selectedAircraft} />}
             {view === 'planner' && <MissionPlanner />}
+            {view === 'adsb' && <ADSBDisplay />}
+            {view === 'mcp' && <MCPIntegration aircraftId={selectedAircraft} />}
             {view === 'chat' && <LLMChat aircraftId={selectedAircraft} />}
           </div>
           
@@ -119,6 +136,10 @@ function App() {
             <span>Last Update: {new Date().toLocaleTimeString()}</span>
           </div>
         </footer>
+        
+        {/* ADS-B Debug Status Panel */}
+        <ADSBStatus />
+        
         </div>
       </TelemetryProvider>
     </WebSocketProvider>

@@ -4,6 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useWebSocket } from '../context/WebSocketContext';
 import { GeolocationService, type GeolocationResult } from '../services/GeolocationService';
+import { ADSBService, type ADSBAircraft } from '../services/ADSBService';
 import { DemoDataGenerator } from '../services/DemoDataGenerator';
 import type { Position } from '../types/core';
 
@@ -32,6 +33,30 @@ const groundStationIcon = new L.Icon({
   iconUrl: 'data:image/svg+xml;base64,' + btoa(`
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M12 2L14 8L20 10L14 12L12 18L10 12L4 10L10 8L12 2Z" fill="#4ade80" stroke="#000" stroke-width="1"/>
+    </svg>
+  `),
+  iconSize: [20, 20],
+  iconAnchor: [10, 10],
+  popupAnchor: [0, -10],
+});
+
+// ADS-B aircraft icon
+const adsbAircraftIcon = new L.Icon({
+  iconUrl: 'data:image/svg+xml;base64,' + btoa(`
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="#3b82f6" stroke="#fff" stroke-width="1"/>
+    </svg>
+  `),
+  iconSize: [18, 18],
+  iconAnchor: [9, 9],
+  popupAnchor: [0, -9],
+});
+
+// Emergency aircraft icon
+const emergencyAircraftIcon = new L.Icon({
+  iconUrl: 'data:image/svg+xml;base64,' + btoa(`
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z" fill="#dc2626" stroke="#fff" stroke-width="1"/>
     </svg>
   `),
   iconSize: [20, 20],
@@ -69,6 +94,8 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
   const [showDemo, setShowDemo] = useState(false);
   const [demoTelemetry, setDemoTelemetry] = useState<any>(null);
   const [demoDataGenerator] = useState(() => new DemoDataGenerator());
+  const [adsbAircraft, setAdsbAircraft] = useState<ADSBAircraft[]>([]);
+  const [showAdsb, setShowAdsb] = useState(true);
 
   // Initialize geolocation
   useEffect(() => {
@@ -88,6 +115,23 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
 
     return unsubscribe;
   }, [currentTelemetry, showDemo]);
+
+  // Initialize ADS-B service
+  useEffect(() => {
+    const adsbService = ADSBService.getInstance();
+    
+    const unsubscribeAdsb = adsbService.onAircraftUpdate((aircraftList) => {
+      setAdsbAircraft(aircraftList);
+    });
+
+    // Update our position for ADS-B collision detection
+    const activeTelemetry = showDemo ? demoTelemetry : currentTelemetry;
+    if (activeTelemetry?.position) {
+      adsbService.updateOwnPosition(activeTelemetry.position, activeTelemetry.position.altitude);
+    }
+
+    return unsubscribeAdsb;
+  }, [currentTelemetry, demoTelemetry, showDemo]);
 
   // Demo mode management
   useEffect(() => {
@@ -184,6 +228,21 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
           {showDemo ? '🎮 Demo Mode' : '📡 Live Data'}
         </button>
         
+        <button 
+          onClick={() => setShowAdsb(!showAdsb)}
+          style={{ 
+            padding: '0.25rem 0.5rem', 
+            fontSize: '0.8rem',
+            backgroundColor: showAdsb ? 'var(--accent-color)' : 'var(--bg-secondary)',
+            color: showAdsb ? 'white' : 'var(--text-primary)',
+            border: '1px solid var(--border-color)',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          {showAdsb ? '📡 ADS-B ON' : '📡 ADS-B OFF'}
+        </button>
+        
         {groundStationLocation && (
           <div className="ground-station-info" style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
             📍 GCS: {groundStationLocation.city}, {groundStationLocation.country}
@@ -261,6 +320,29 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
             </Marker>
           )}
           
+          {/* ADS-B Aircraft markers */}
+          {showAdsb && adsbAircraft.map((aircraft) => (
+            <Marker 
+              key={aircraft.icao}
+              position={[aircraft.position.latitude, aircraft.position.longitude]}
+              icon={aircraft.emergency ? emergencyAircraftIcon : adsbAircraftIcon}
+            >
+              <Popup>
+                <div>
+                  <strong>ADS-B: {aircraft.callsign}</strong><br/>
+                  ICAO: {aircraft.icao}<br/>
+                  Altitude: {Math.round(aircraft.altitude)}m<br/>
+                  Speed: {Math.round(aircraft.velocity.speed * 1.944)} knots<br/>
+                  Track: {Math.round(aircraft.velocity.track)}°<br/>
+                  Squawk: {aircraft.squawk || 'N/A'}<br/>
+                  Category: {aircraft.category}<br/>
+                  {aircraft.emergency && <span style={{ color: '#dc2626', fontWeight: 'bold' }}>🚨 EMERGENCY</span>}
+                  {aircraft.onGround && <span style={{ color: '#6b7280' }}>On Ground</span>}
+                </div>
+              </Popup>
+            </Marker>
+          ))}
+          
           {/* Flight path */}
           {flightPathCoords.length > 1 && (
             <Polyline 
@@ -279,11 +361,15 @@ const MapView: React.FC<MapViewProps> = ({ aircraftId }) => {
         fontSize: '0.8rem', 
         color: 'var(--text-muted)',
         display: 'flex',
-        gap: '1rem'
+        gap: '1rem',
+        flexWrap: 'wrap'
       }}>
         <span>🟢 Ground Station</span>
-        <span>🔶 Aircraft</span>
+        <span>🔶 Our Aircraft</span>
+        <span>🔵 ADS-B Traffic</span>
+        <span>🔴 Emergency</span>
         <span style={{ color: '#ff6b35' }}>── Flight Path</span>
+        {showAdsb && <span>({adsbAircraft.length} aircraft)</span>}
       </div>
     </div>
   );
