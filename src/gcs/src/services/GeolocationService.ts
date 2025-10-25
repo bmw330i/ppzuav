@@ -2,7 +2,7 @@
  * Geolocation Service - Determines user location via IP address and browser geolocation
  */
 
-import type { Position } from '../types/core';
+import type { Position } from '../types/mission';
 
 export interface GeolocationResult {
   position: Position;
@@ -67,10 +67,10 @@ export class GeolocationService {
         };
 
         this.setCurrentLocation(location);
-        console.log('IP Geolocation successful:', location);
+        console.log('🌍 IP Geolocation successful:', `${location.city}, ${location.country}`);
       }
     } catch (error) {
-      console.warn('IP geolocation failed:', error);
+      console.warn('🌍 IP geolocation failed:', error);
       
       // Fallback to alternative IP geolocation service
       try {

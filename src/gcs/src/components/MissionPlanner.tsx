@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Polyline, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 
 import { GeocodingService } from '../services/GeocodingService';
 import { GeolocationService } from '../services/GeolocationService';
 import WaypointEditor from './WaypointEditor';
+import DraggableWaypoint from './DraggableWaypoint';
 import type { 
   FlightPlan, 
   Waypoint, 
@@ -13,7 +14,6 @@ import type {
   MissionPlannerState,
   GeocodeResult 
 } from '../types/mission';
-import { DEFAULT_FLIGHT_PLAN } from '../types/mission';
 
 // Custom icons for mission planning
 const homeIcon = new L.Icon({
@@ -89,10 +89,13 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
         // Initialize default flight plan with actual home coordinates
         if (!prev.currentPlan) {
           const newPlan: FlightPlan = {
-            ...DEFAULT_FLIGHT_PLAN,
             id: `mission_${Date.now()}`,
             name: 'New Mission',
             home: location.position,
+            max_dist_from_home: 1000,
+            ground_alt: 0,
+            security_height: 25,
+            alt: 100,
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString(),
             waypoints: [
@@ -108,7 +111,7 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
                 id: 'stdby',
                 name: 'STDBY',
                 position: {
-                  latitude: location.position.latitude + 0.0007, // ~75m north
+                  latitude: location.position.latitude + 0.0007,
                   longitude: location.position.longitude,
                   altitude: location.position.altitude + 100
                 },
@@ -116,8 +119,22 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
                 y: 75,
                 color: '#ffff00'
               }
+            ],
+            blocks: [
+              {
+                id: 'standby',
+                name: 'Standby',
+                actions: [
+                  {
+                    type: 'circle',
+                    wp: 'stdby',
+                    radius: 75,
+                    vmode: 'alt'
+                  }
+                ]
+              }
             ]
-          } as FlightPlan;
+          };
           
           newState.currentPlan = newPlan;
         }
@@ -129,44 +146,51 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
     return unsubscribe;
   }, [geolocationService]);
 
-  // Create a new mission with default waypoints
-  const createNewMission = useCallback((homePos: Position) => {
-    const newPlan: FlightPlan = {
-      ...DEFAULT_FLIGHT_PLAN,
-      id: `mission_${Date.now()}`,
-      name: 'New Mission',
-      home: homePos,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-      waypoints: [
-        {
-          id: 'home',
-          name: 'HOME',
-          position: homePos,
-          x: 0,
-          y: 0,
-          color: '#00ff00'
-        },
-        {
-          id: 'stdby',
-          name: 'STDBY',
-          position: {
-            latitude: homePos.latitude + 0.0007, // ~75m north
-            longitude: homePos.longitude,
-            altitude: homePos.altitude + 100
-          },
-          x: 0,
-          y: 75,
-          color: '#ffff00'
-        }
-      ]
-    } as FlightPlan;
+  // Handle home location input (zipcode, address, or coordinates)
+  const handleHomeLocationSubmit = async () => {
+    if (!homeLocationInput.trim()) return;
 
-    setState(prev => ({
-      ...prev,
-      currentPlan: newPlan
-    }));
-  }, []);
+    setIsGeocodingHome(true);
+    setGeocodingError('');
+
+    try {
+      let result: GeocodeResult;
+
+      if (homeLocationInput.match(/^-?\d+\.?\d*[,\s]+-?\d+\.?\d*$/)) {
+        result = geocodingService.parseCoordinates(homeLocationInput);
+      } else if (homeLocationInput.match(/^\d{5}(-\d{4})?$/)) {
+        result = await geocodingService.geocodeZipcode(homeLocationInput, 'US');
+      } else {
+        result = await geocodingService.geocodeAddress(homeLocationInput);
+      }
+
+      if (result.success && result.position) {
+        setState(prev => ({
+          ...prev,
+          homeLocation: result.position!,
+          homeLocationSource: 'manual',
+          mapCenter: result.position!
+        }));
+
+        if (state.currentPlan) {
+          const updatedPlan = {
+            ...state.currentPlan,
+            home: result.position!,
+            updatedAt: new Date().toISOString()
+          };
+          setState(prev => ({ ...prev, currentPlan: updatedPlan }));
+        }
+
+        setHomeLocationInput('');
+      } else {
+        setGeocodingError(result.error || 'Failed to geocode location');
+      }
+    } catch (error) {
+      setGeocodingError(error instanceof Error ? error.message : 'Geocoding failed');
+    } finally {
+      setIsGeocodingHome(false);
+    }
+  };
 
   // Update a waypoint
   const updateWaypoint = useCallback((updatedWaypoint: Waypoint) => {
@@ -200,63 +224,37 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
     }));
   }, [state.currentPlan]);
 
-  // Handle home location input (zipcode, address, or coordinates)
-  const handleHomeLocationSubmit = async () => {
-    if (!homeLocationInput.trim()) return;
+  // Handle waypoint drag end
+  const handleWaypointDrag = useCallback((waypointId: string, newPosition: Position) => {
+    if (!state.currentPlan) return;
 
-    setIsGeocodingHome(true);
-    setGeocodingError('');
+    const updatedWaypoints = state.currentPlan.waypoints.map(wp =>
+      wp.id === waypointId ? { ...wp, position: newPosition } : wp
+    );
 
-    try {
-      let result: GeocodeResult;
+    const updatedPlan = {
+      ...state.currentPlan,
+      waypoints: updatedWaypoints,
+      updatedAt: new Date().toISOString()
+    };
 
-      // Check if input looks like coordinates
-      if (homeLocationInput.match(/^-?\d+\.?\d*[,\s]+-?\d+\.?\d*$/)) {
-        result = geocodingService.parseCoordinates(homeLocationInput);
-      } 
-      // Check if input looks like a US zipcode
-      else if (homeLocationInput.match(/^\d{5}(-\d{4})?$/)) {
-        result = await geocodingService.geocodeZipcode(homeLocationInput, 'US');
-      }
-      // Otherwise treat as address
-      else {
-        result = await geocodingService.geocodeAddress(homeLocationInput);
-      }
-
-      if (result.success && result.position) {
-        setState(prev => ({
-          ...prev,
-          homeLocation: result.position!,
-          homeLocationSource: 'manual',
-          mapCenter: result.position!
-        }));
-
-        // Update current mission home location
-        if (state.currentPlan) {
-          const updatedPlan = {
-            ...state.currentPlan,
-            home: result.position!,
-            updatedAt: new Date().toISOString()
-          };
-          setState(prev => ({ ...prev, currentPlan: updatedPlan }));
-        } else {
-          createNewMission(result.position!);
-        }
-
-        setHomeLocationInput('');
-        console.log(`Home location set to: ${result.address || 'Manual coordinates'}`);
-      } else {
-        setGeocodingError(result.error || 'Failed to geocode location');
-      }
-    } catch (error) {
-      setGeocodingError(error instanceof Error ? error.message : 'Geocoding failed');
-    } finally {
-      setIsGeocodingHome(false);
+    // If home waypoint is moved, update mission home coordinates
+    if (waypointId === 'home') {
+      const updatedPlanWithHome = {
+        ...updatedPlan,
+        home: newPosition
+      };
+      
+      setState(prev => ({
+        ...prev,
+        currentPlan: updatedPlanWithHome,
+        homeLocation: newPosition,
+        mapCenter: newPosition
+      }));
+    } else {
+      setState(prev => ({ ...prev, currentPlan: updatedPlan }));
     }
-  };
-
-  // Add new waypoint at map click location
-  // This functionality is now handled directly in MapEventHandler
+  }, [state.currentPlan]);
 
   // Component to handle map events
   const MapEventHandler: React.FC = () => {
@@ -296,7 +294,6 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
       };
     });
 
-    // Update map view when center/zoom changes
     useEffect(() => {
       map.setView([state.mapCenter.latitude, state.mapCenter.longitude], state.mapZoom);
     }, [map]);
@@ -404,7 +401,7 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
           
           {state.editMode === 'waypoints' && (
             <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginLeft: '1rem' }}>
-              💡 Click on map to add waypoints
+              💡 Click on map to add waypoints | Drag waypoints to move
             </span>
           )}
         </div>
@@ -434,62 +431,25 @@ const MissionPlanner: React.FC<MissionPlannerProps> = ({ className }) => {
         >
           <MapEventHandler />
           
-          {/* OpenStreetMap tiles */}
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             maxZoom={19}
           />
 
-          {/* Home marker */}
-          <Marker 
-            position={[state.homeLocation.latitude, state.homeLocation.longitude]}
-            icon={homeIcon}
-          >
-            <Popup>
-              <div>
-                <strong>🏠 Home Base</strong><br/>
-                Location: {state.homeLocation.latitude.toFixed(6)}, {state.homeLocation.longitude.toFixed(6)}<br/>
-                Source: {state.homeLocationSource.toUpperCase()}<br/>
-                Altitude: {state.homeLocation.altitude}m
-              </div>
-            </Popup>
-          </Marker>
-
-          {/* Mission waypoints */}
-          {state.currentPlan?.waypoints
-            .filter(wp => wp.id !== 'home')
-            .map((waypoint, index) => (
-            <Marker
+          {/* Draggable waypoints */}
+          {state.currentPlan?.waypoints.map((waypoint) => (
+            <DraggableWaypoint
               key={waypoint.id}
-              position={[waypoint.position.latitude, waypoint.position.longitude]}
-              icon={state.selectedWaypoint === waypoint.id ? selectedWaypointIcon : waypointIcon}
-            >
-              <Popup>
-                <div>
-                  <strong>📍 {waypoint.name}</strong><br/>
-                  Position: {waypoint.position.latitude.toFixed(6)}, {waypoint.position.longitude.toFixed(6)}<br/>
-                  Altitude: {waypoint.position.altitude}m<br/>
-                  Order: {index + 1}
-                  <br/>
-                  <button 
-                    onClick={() => setState(prev => ({ ...prev, selectedWaypoint: waypoint.id }))}
-                    style={{ 
-                      marginTop: '0.5rem', 
-                      padding: '0.25rem 0.5rem',
-                      fontSize: '0.8rem',
-                      backgroundColor: 'var(--accent-color)',
-                      color: 'white',
-                      border: 'none',
-                      borderRadius: '3px',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    Edit Waypoint
-                  </button>
-                </div>
-              </Popup>
-            </Marker>
+              waypoint={waypoint}
+              icon={waypoint.id === 'home' ? homeIcon : 
+                    state.selectedWaypoint === waypoint.id ? selectedWaypointIcon : waypointIcon}
+              isSelected={state.selectedWaypoint === waypoint.id}
+              isHome={waypoint.id === 'home'}
+              onDragEnd={handleWaypointDrag}
+              onSelect={(id) => setState(prev => ({ ...prev, selectedWaypoint: id }))}
+              onEdit={() => setState(prev => ({ ...prev, selectedWaypoint: waypoint.id }))}
+            />
           ))}
 
           {/* Mission path visualization */}

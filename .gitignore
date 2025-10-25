@@ -222,3 +222,8 @@ coverage/
 
 # Generated files
 src/generated/
+
+# Log files - all log directories
+logs/
+**/logs/
+*.log
