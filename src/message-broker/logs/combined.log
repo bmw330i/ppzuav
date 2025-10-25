@@ -1204,3 +1204,17 @@
 {"timestamp":"2025-10-25T00:01:01.614Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
 {"timestamp":"2025-10-25T00:01:06.617Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
 {"timestamp":"2025-10-25T00:01:06.619Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:11.623Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:11.626Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:16.629Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:16.632Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:21.636Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:21.638Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:26.642Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:26.644Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:31.647Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:31.649Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:36.653Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:36.655Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
+{"timestamp":"2025-10-25T00:01:41.658Z","level":"INFO","component":"BROKER","message":"WebSocket client connected"}
+{"timestamp":"2025-10-25T00:01:41.659Z","level":"INFO","component":"BROKER","message":"WebSocket client disconnected"}
