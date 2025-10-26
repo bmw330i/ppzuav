@@ -1,0 +1,225 @@
+{
+  "sensors": {
+    "imu_mpu6050": {
+      "name": "MPU-6050 IMU",
+      "type": "imu",
+      "manufacturer": "TDK InvenSense",
+      "weight": 1,
+      "dimensions": {
+        "length": 4,
+        "width": 4,
+        "height": 0.9
+      },
+      "power": {
+        "voltage": "2.3-3.4V",
+        "current": 3.9
+      },
+      "interface": "I2C/SPI",
+      "sensors": {
+        "accelerometer": {
+          "range": "±2, ±4, ±8, ±16g",
+          "resolution": "16-bit",
+          "noise": "400µg/√Hz"
+        },
+        "gyroscope": {
+          "range": "±250, ±500, ±1000, ±2000°/s",
+          "resolution": "16-bit",
+          "noise": "0.005°/s/√Hz"
+        }
+      },
+      "temperature_sensor": true,
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser", "sparkfun", "adafruit"],
+      "datasheet_url": "https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf",
+      "paparazzi_compatible": true
+    },
+    "imu_bmi088": {
+      "name": "BMI088 IMU",
+      "type": "imu",
+      "manufacturer": "Bosch",
+      "weight": 0.8,
+      "dimensions": {
+        "length": 3,
+        "width": 2.5,
+        "height": 0.95
+      },
+      "power": {
+        "voltage": "2.4-3.6V",
+        "current": 2.5
+      },
+      "interface": "SPI",
+      "sensors": {
+        "accelerometer": {
+          "range": "±2, ±4, ±8, ±16g",
+          "resolution": "16-bit",
+          "noise": "150µg/√Hz"
+        },
+        "gyroscope": {
+          "range": "±125, ±250, ±500, ±1000, ±2000°/s",
+          "resolution": "16-bit",
+          "noise": "0.03°/s/√Hz"
+        }
+      },
+      "temperature_sensor": true,
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser"],
+      "datasheet_url": "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi088-ds001.pdf",
+      "paparazzi_compatible": true
+    },
+    "airspeed_mp3v5004": {
+      "name": "MP3V5004 Airspeed Sensor",
+      "type": "airspeed",
+      "manufacturer": "NXP",
+      "weight": 2,
+      "dimensions": {
+        "length": 10.16,
+        "width": 10.16,
+        "height": 12.45
+      },
+      "power": {
+        "voltage": "2.7-3.3V",
+        "current": 10
+      },
+      "interface": "analog",
+      "range": "0-3.92kPa (0-400km/h)",
+      "accuracy": "±2.5%",
+      "response_time": "1ms",
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser"],
+      "datasheet_url": "https://www.nxp.com/docs/en/data-sheet/MP3V5004G.pdf",
+      "paparazzi_compatible": true,
+      "pitot_tube_required": true
+    },
+    "airspeed_ms4525do": {
+      "name": "MS4525DO Airspeed Sensor",
+      "type": "airspeed",
+      "manufacturer": "TE Connectivity",
+      "weight": 1.5,
+      "dimensions": {
+        "length": 8.2,
+        "width": 8.2,
+        "height": 4.8
+      },
+      "power": {
+        "voltage": "1.8-3.6V",
+        "current": 1.5
+      },
+      "interface": "I2C",
+      "range": "±1psi (0-100m/s)",
+      "accuracy": "±1%",
+      "response_time": "0.5ms",
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser"],
+      "datasheet_url": "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=showdoc&DocId=Data+Sheet%7FMS4525DO%7FB3%7Fpdf%7FEnglish%7FENG_DS_MS4525DO_B3.pdf",
+      "paparazzi_compatible": true,
+      "pitot_tube_required": true
+    },
+    "gps_ublox_neo_m8n": {
+      "name": "u-blox NEO-M8N GPS",
+      "type": "gps",
+      "manufacturer": "u-blox",
+      "weight": 2.5,
+      "dimensions": {
+        "length": 12.2,
+        "width": 16,
+        "height": 2.4
+      },
+      "power": {
+        "voltage": "2.7-3.6V",
+        "current": 25
+      },
+      "interface": "UART/I2C/SPI",
+      "accuracy": {
+        "position": "2.5m CEP",
+        "velocity": "0.05m/s"
+      },
+      "update_rate": "10Hz",
+      "channels": 72,
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser", "sparkfun"],
+      "datasheet_url": "https://www.u-blox.com/en/product/neo-m8-series",
+      "paparazzi_compatible": true
+    },
+    "baro_ms5611": {
+      "name": "MS5611 Barometric Pressure",
+      "type": "barometer",
+      "manufacturer": "TE Connectivity",
+      "weight": 0.5,
+      "dimensions": {
+        "length": 3,
+        "width": 3,
+        "height": 1.1
+      },
+      "power": {
+        "voltage": "1.8-3.6V",
+        "current": 0.6
+      },
+      "interface": "I2C",
+      "range": "10-1200mbar",
+      "accuracy": "±1.5m",
+      "response_time": "8.22ms",
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser", "sparkfun"],
+      "datasheet_url": "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=MS5611-01BA03&DocType=Data+Sheet&DocLang=English",
+      "paparazzi_compatible": true
+    },
+    "mag_hmc5883l": {
+      "name": "HMC5883L Magnetometer",
+      "type": "magnetometer",
+      "manufacturer": "Honeywell",
+      "weight": 0.3,
+      "dimensions": {
+        "length": 3,
+        "width": 3,
+        "height": 0.9
+      },
+      "power": {
+        "voltage": "2.16-3.6V",
+        "current": 0.1
+      },
+      "interface": "I2C",
+      "range": "±1.3 to ±8.1 Gauss",
+      "resolution": "12-bit",
+      "accuracy": "1°-2°",
+      "max_weight_class": "<250g",
+      "distributors": ["digikey", "mouser", "sparkfun"],
+      "datasheet_url": "https://www.magneticsensors.com/Literature/Product%20Data%20Sheets/HMC5883L_3-Axis_Digital_Compass_IC.pdf",
+      "paparazzi_compatible": true
+    }
+  },
+  "micro_airspeed_solutions": {
+    "diy_pitot_static": {
+      "name": "DIY Pitot-Static System",
+      "components": {
+        "pitot_tube": {
+          "material": "aluminum tubing (1/8\" OD)",
+          "length": 100,
+          "weight": 5
+        },
+        "static_ports": {
+          "count": 2,
+          "diameter": 1
+        },
+        "differential_sensor": "MP3V5004GP or MS4525DO",
+        "tubing": "silicone (1/16\" ID)",
+        "connectors": "barbed fittings"
+      },
+      "total_weight": 15,
+      "calibration_required": true,
+      "accuracy": "±5%",
+      "max_airspeed": "50m/s",
+      "cost_estimate": 25
+    },
+    "commercial_micro_pitot": {
+      "name": "Commercial Micro Pitot",
+      "examples": [
+        "Eagle Tree Systems MicroSensor",
+        "AeroQuad pitot tube",
+        "Custom 3D printed designs"
+      ],
+      "weight_range": "5-20g",
+      "accuracy": "±3-5%",
+      "max_airspeed": "40-60m/s"
+    }
+  }
+}

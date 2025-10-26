@@ -1,0 +1,93 @@
+{
+  "name": "paparazzi-nextgen",
+  "version": "4.0.0",
+  "description": "Next-generation Paparazzi UAV system with OCaml-free architecture, LLM integration, interactive real-time mapping, and professional background service management",
+  "main": "dist/index.js",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run dev:gcs\" \"npm run dev:mcp\" \"npm run dev:broker\"",
+    "dev:gcs": "cd src/gcs && npm run dev",
+    "dev:mcp": "cd src/mcp-server && npm run dev",
+    "dev:broker": "cd src/message-broker && npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:backend": "tsc -p tsconfig.json",
+    "build:frontend": "cd src/gcs && npm run build",
+    "build:airborne": "cd airborne && cmake --build build",
+    "sim": "node dist/simulator/index.js",
+    "gcs": "cd src/gcs && npm start",
+    "services:start": "./scripts/services.sh start",
+    "services:stop": "./scripts/services.sh stop",
+    "services:restart": "./scripts/services.sh restart",
+    "services:status": "./scripts/services.sh status",
+    "services:logs": "./scripts/services.sh logs",
+    "services:clean": "./scripts/services.sh clean",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx}",
+    "clean": "rm -rf dist node_modules src/*/node_modules",
+    "setup": "npm install && npm run setup:subprojects",
+    "setup:subprojects": "cd src/gcs && npm install && cd ../mcp-server && npm install && cd ../message-broker && npm install",
+    "docker:build": "docker build -t paparazzi-nextgen .",
+    "docker:dev": "docker-compose -f docker/docker-compose.dev.yml up",
+    "load-mission": "node scripts/load-mission.js",
+    "logs": "./scripts/logs.sh",
+    "logs:tail": "./scripts/logs.sh tail",
+    "logs:errors": "./scripts/logs.sh errors"
+  },
+  "keywords": [
+    "uav",
+    "autopilot",
+    "drone",
+    "autonomous",
+    "atmospheric-research",
+    "paparazzi",
+    "llm",
+    "mcp",
+    "stm32",
+    "arm7"
+  ],
+  "author": "bmw330i <bmw330i@users.noreply.github.com>",
+  "license": "GPL-2.0+",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bmw330i/paparazzi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bmw330i/paparazzi/issues"
+  },
+  "homepage": "https://github.com/bmw330i/paparazzi#readme",
+  "devDependencies": {
+    "@types/express": "^5.0.4",
+    "@types/jest": "^29.5.8",
+    "@types/node": "^20.19.23",
+    "@typescript-eslint/eslint-plugin": "^6.9.0",
+    "@typescript-eslint/parser": "^6.9.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.52.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.20.2",
+    "express": "^4.18.2",
+    "mqtt": "^5.3.0",
+    "serialport": "^12.0.0",
+    "socket.io": "^4.7.4",
+    "ws": "^8.14.2",
+    "zod": "^3.22.4"
+  },
+  "optionalDependencies": {
+    "sharp": "^0.32.6"
+  }
+}
