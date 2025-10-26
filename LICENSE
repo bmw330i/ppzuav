@@ -1,0 +1,44 @@
+# PaparazziAI License
+
+**Copyright (c) 2025 PaparazziAI Project**
+
+## Terms and Conditions
+
+This codebase is independently developed and contains no GPL-licensed code from the original Paparazzi project. All code is AI-generated and original work.
+
+### Permissions
+- ✅ **Commercial Use**: You may use this code for commercial purposes
+- ✅ **Modification**: You may modify and create derivative works
+- ✅ **Distribution**: You may distribute copies of the software
+- ✅ **Private Use**: You may use this software privately
+
+### Conditions
+- 📝 **Attribution**: Include original copyright notice in all copies
+- 🚫 **No GPL Contamination**: This code must not be combined with GPL-licensed Paparazzi code
+- 🔒 **Security Review**: Review code security before public deployment
+- ⚖️ **Legal Compliance**: Ensure compliance with aviation regulations
+
+### Limitations
+- 🚫 **No Warranty**: Software provided "as is" without warranty
+- 🚫 **No Liability**: Authors not liable for damages or misuse
+- 🚫 **No GPL License**: This is not GPL-licensed code
+
+## Important Notice
+
+This software is for research and development purposes. Users are responsible for:
+- Legal compliance with aviation regulations
+- Safety of autonomous aircraft operations
+- Security and integrity of deployed systems
+- Proper testing and validation before flight operations
+
+## Future Licensing
+
+This codebase may be relicensed under GPL or other open-source licenses in the future, pending:
+- Security validation and penetration testing
+- Code maturity and stability verification
+- Legal review and compliance assessment
+- Community and stakeholder input
+
+---
+
+**Contact**: For licensing inquiries or collaboration opportunities
