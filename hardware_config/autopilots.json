@@ -1,0 +1,174 @@
+{
+  "autopilots": {
+    "lisa_mx": {
+      "name": "Lisa/MX v2.1",
+      "manufacturer": "ENAC",
+      "weight": 12,
+      "dimensions": {
+        "length": 50,
+        "width": 36,
+        "height": 8
+      },
+      "processor": "STM32F105RCT6 (120MHz)",
+      "flash": "256KB",
+      "ram": "64KB",
+      "interfaces": {
+        "uart": 4,
+        "i2c": 2,
+        "spi": 2,
+        "adc": 10,
+        "pwm": 6,
+        "gpio": 32
+      },
+      "power": {
+        "voltage": "3.3-5.5V",
+        "current_typical": 80,
+        "current_max": 150
+      },
+      "sensors": {
+        "imu": "integrated MPU-6000",
+        "baro": "integrated MS5611",
+        "mag": "optional HMC5883"
+      },
+      "connectivity": {
+        "modem": "XBee/XBee Pro",
+        "usb": "Mini-USB",
+        "sd_card": true
+      },
+      "firmware": "Paparazzi",
+      "airframes": ["fixed-wing", "rotorcraft", "hybrid"],
+      "max_weight_class": "<250g",
+      "datasheet_url": "https://wiki.paparazziuav.org/wiki/Lisa/MX",
+      "availability": "discontinued",
+      "recommended_alternatives": ["cube_black", "pixhawk"]
+    },
+    "tiny_2.11": {
+      "name": "Tiny v2.11",
+      "manufacturer": "ENAC",
+      "weight": 8,
+      "dimensions": {
+        "length": 40,
+        "width": 30,
+        "height": 6
+      },
+      "processor": "ATmega128 (16MHz)",
+      "flash": "128KB",
+      "ram": "4KB",
+      "eeprom": "4KB",
+      "interfaces": {
+        "uart": 2,
+        "adc": 8,
+        "pwm": 6,
+        "gpio": 32
+      },
+      "power": {
+        "voltage": "3.3-5.5V",
+        "current_typical": 50,
+        "current_max": 100
+      },
+      "sensors": {
+        "imu": "external",
+        "baro": "external",
+        "mag": "external"
+      },
+      "connectivity": {
+        "modem": "XBee/XBee Pro",
+        "usb": "Mini-USB"
+      },
+      "firmware": "Paparazzi",
+      "airframes": ["fixed-wing"],
+      "max_weight_class": "<250g",
+      "datasheet_url": "https://wiki.paparazziuav.org/wiki/Tiny_v2",
+      "availability": "discontinued",
+      "recommended_alternatives": ["lisa_mx", "cube_black"]
+    },
+    "cube_black": {
+      "name": "Cube Black",
+      "manufacturer": "Hex/ProfiCNC",
+      "weight": 38,
+      "dimensions": {
+        "length": 36,
+        "width": 36,
+        "height": 12
+      },
+      "processor": "STM32F427 (168MHz)",
+      "flash": "2MB",
+      "ram": "256KB",
+      "interfaces": {
+        "uart": 5,
+        "i2c": 2,
+        "spi": 4,
+        "can": 2,
+        "adc": 6,
+        "pwm": 14,
+        "gpio": 40
+      },
+      "power": {
+        "voltage": "4.8-5.4V",
+        "current_typical": 150,
+        "current_max": 300
+      },
+      "sensors": {
+        "imu": "integrated MPU-6000 + ICM-20608",
+        "baro": "integrated MS5611",
+        "mag": "integrated HMC5883"
+      },
+      "connectivity": {
+        "modem": "Multiple protocols",
+        "usb": "Micro-USB",
+        "sd_card": true,
+        "wifi": "ESP8266"
+      },
+      "firmware": "Paparazzi, ArduPilot, PX4",
+      "airframes": ["fixed-wing", "rotorcraft", "hybrid"],
+      "max_weight_class": "<250g",
+      "datasheet_url": "https://docs.cubepilot.org/user-guides/autopilot/the-cube-series/the-cube-black",
+      "availability": "available",
+      "distributors": ["digikey", "mouser", "sparkfun"]
+    },
+    "pixhawk_4": {
+      "name": "Pixhawk 4",
+      "manufacturer": "Holybro",
+      "weight": 15,
+      "dimensions": {
+        "length": 44,
+        "width": 84,
+        "height": 12
+      },
+      "processor": "STM32F765 (216MHz)",
+      "flash": "2MB",
+      "ram": "512KB",
+      "interfaces": {
+        "uart": 6,
+        "i2c": 2,
+        "spi": 4,
+        "can": 2,
+        "adc": 8,
+        "pwm": 16,
+        "gpio": 40
+      },
+      "power": {
+        "voltage": "4.8-5.4V",
+        "current_typical": 200,
+        "current_max": 400
+      },
+      "sensors": {
+        "imu": "integrated ICM-20689 + BMI088",
+        "baro": "integrated MS5611",
+        "mag": "integrated IST8310"
+      },
+      "connectivity": {
+        "modem": "Multiple protocols",
+        "usb": "Micro-USB",
+        "sd_card": true,
+        "wifi": "ESP8266"
+      },
+      "firmware": "Paparazzi, PX4, ArduPilot",
+      "airframes": ["fixed-wing", "rotorcraft", "hybrid"],
+      "max_weight_class": "<250g",
+      "datasheet_url": "https://docs.px4.io/main/en/flight_controller/pixhawk4.html",
+      "availability": "available",
+      "distributors": ["digikey", "mouser", "adafruit"]
+    }
+  }
+}

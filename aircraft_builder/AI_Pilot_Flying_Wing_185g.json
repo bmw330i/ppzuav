@@ -1,0 +1,146 @@
+{
+  "design": {
+    "name": "AI_Pilot_Flying_Wing_185g",
+    "type": "flying_wing",
+    "wingspan": 800,
+    "wing_area": 0.12,
+    "empty_weight": 185.0,
+    "max_takeoff_weight": 205.0,
+    "cg_location_percent": 0.25,
+    "stability_margin": 0.1
+  },
+  "weight_balance": {
+    "total_weight": 185.0,
+    "cg_from_wing": -101.27027027027027,
+    "cg_from_nose": -1.2702702702702737,
+    "mac": 150.0,
+    "neutral_point": 37.5,
+    "stability_margin": 0.925135135135135,
+    "is_stable": true,
+    "weight_distribution": [
+      {
+        "component": "Tiny v2.11",
+        "weight": 8,
+        "position": 0,
+        "relative_pos": -100,
+        "moment": -800
+      },
+      {
+        "component": "MPU-6050 IMU",
+        "weight": 1,
+        "position": 120,
+        "relative_pos": 20,
+        "moment": 20
+      },
+      {
+        "component": "u-blox NEO-M8N GPS",
+        "weight": 2.5,
+        "position": 140,
+        "relative_pos": 40,
+        "moment": 100.0
+      },
+      {
+        "component": "MS5611 Barometric Pressure",
+        "weight": 0.5,
+        "position": 130,
+        "relative_pos": 30,
+        "moment": 15.0
+      },
+      {
+        "component": "MP3V5004 Airspeed Sensor",
+        "weight": 17,
+        "position": 50,
+        "relative_pos": -50,
+        "moment": -850
+      },
+      {
+        "component": "LiPo Battery",
+        "weight": 141.0,
+        "position": -20,
+        "relative_pos": -120,
+        "moment": -16920.0
+      },
+      {
+        "component": "Brushless Motor + Propeller",
+        "weight": 15,
+        "position": 80,
+        "relative_pos": -20,
+        "moment": -300
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Tiny v2.11",
+      "weight": 8,
+      "position": {
+        "x": 0,
+        "y": 0,
+        "z": 0
+      }
+    },
+    {
+      "name": "MPU-6050 IMU",
+      "weight": 1,
+      "position": {
+        "x": 120,
+        "y": 0,
+        "z": 5
+      }
+    },
+    {
+      "name": "u-blox NEO-M8N GPS",
+      "weight": 2.5,
+      "position": {
+        "x": 140,
+        "y": 0,
+        "z": 5
+      }
+    },
+    {
+      "name": "MS5611 Barometric Pressure",
+      "weight": 0.5,
+      "position": {
+        "x": 130,
+        "y": 0,
+        "z": 5
+      }
+    },
+    {
+      "name": "MP3V5004 Airspeed Sensor",
+      "weight": 17,
+      "position": {
+        "x": 50,
+        "y": 0,
+        "z": 10
+      }
+    },
+    {
+      "name": "LiPo Battery",
+      "weight": 141.0,
+      "position": {
+        "x": -20,
+        "y": 0,
+        "z": -5
+      }
+    },
+    {
+      "name": "Brushless Motor + Propeller",
+      "weight": 15,
+      "position": {
+        "x": 80,
+        "y": 0,
+        "z": 0
+      }
+    }
+  ],
+  "flight_characteristics": {
+    "estimated_flight_time": 47.0,
+    "airspeeds": {
+      "Vs": 1.1,
+      "Vx": 1.2,
+      "Vy": 1.4,
+      "Vno": 1.7
+    }
+  }
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE airframe SYSTEM "airframe.dtd">
+
+<!-- AI Pilot Generated Airframe: AI_Pilot_Flying_Wing_185g -->
+<!-- Total Weight: 185.0g -->
+<!-- Type: flying_wing -->
+
+<airframe name="AI_Pilot_Flying_Wing_185g">
+
+  <!-- Servo Configuration -->
+  <servos>
+    <servo name="MOTOR" no="0" min="1000" neutral="1000" max="2000"/>
+    <servo name="ELEVATOR" no="1" min="1000" neutral="1500" max="2000"/>
+    <servo name="RUDDER" no="2" min="1000" neutral="1500" max="2000"/>
+  </servos>
+
+  <!-- Command Configuration -->
+  <commands>
+    <axis name="THROTTLE" failsafe_value="0"/>
+    <axis name="ROLL" failsafe_value="0"/>
+    <axis name="PITCH" failsafe_value="0"/>
+    <axis name="YAW" failsafe_value="0"/>
+  </commands>
+
+  <!-- RC Commands -->
+  <rc_commands>
+    <set command="THROTTLE" value="@THROTTLE"/>
+    <set command="ROLL" value="@ROLL"/>
+    <set command="PITCH" value="@PITCH"/>
+    <set command="YAW" value="@YAW"/>
+  </rc_commands>
+
+  <!-- Command Laws -->
+  <command_laws>
+    <set servo="MOTOR" value="@THROTTLE"/>
+    <set servo="ELEVATOR" value="@PITCH"/>
+    <set servo="RUDDER" value="@YAW"/>
+  </command_laws>
+
+  <!-- IMU Configuration -->
+  <section name="IMU" prefix="IMU_">
+    <define name="GYRO_P_SIGN" value="1"/>
+    <define name="GYRO_Q_SIGN" value="1"/>
+    <define name="GYRO_R_SIGN" value="1"/>
+    <define name="ACCEL_X_SIGN" value="1"/>
+    <define name="ACCEL_Y_SIGN" value="1"/>
+    <define name="ACCEL_Z_SIGN" value="1"/>
+  </section>
+
+  <!-- Battery Configuration -->
+  <section name="BAT">
+    <define name="MILLIAMP_AT_FULL_THROTTLE" value="1500"/>
+    <define name="CATASTROPHIC_BAT_LEVEL" value="3.3" unit="V"/>
+  </section>
+
+  <!-- Flight Parameters -->
+  <section name="MISC">
+    <define name="NOMINAL_AIRSPEED" value="15." unit="m/s"/>
+    <define name="CARROT" value="5." unit="s"/>
+    <define name="CONTROL_RATE" value="60" unit="Hz"/>
+  </section>
+
+  <!-- Vertical Control -->
+  <section name="VERTICAL CONTROL" prefix="V_CTL_">
+    <define name="POWER_CTL_BAT_NOMINAL" value="3.7" unit="volt"/>
+    <define name="ALTITUDE_PGAIN" value="0.03"/>
+    <define name="ALTITUDE_MAX_CLIMB" value="2."/>
+    <define name="AUTO_THROTTLE_NOMINAL_CRUISE_THROTTLE" value="0.4"/>
+  </section>
+
+  <!-- Horizontal Control -->
+  <section name="HORIZONTAL CONTROL" prefix="H_CTL_">
+    <define name="COURSE_PGAIN" value="1.0"/>
+    <define name="ROLL_MAX_SETPOINT" value="0.6" unit="rad"/>
+    <define name="PITCH_MAX_SETPOINT" value="0.5" unit="rad"/>
+    <define name="PITCH_PGAIN" value="12000."/>
+    <define name="ROLL_ATTITUDE_GAIN" value="7500"/>
+    <define name="ROLL_RATE_GAIN" value="1500"/>
+  </section>
+
+</airframe>

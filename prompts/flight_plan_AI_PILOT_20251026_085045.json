@@ -1,0 +1,188 @@
+{
+  "mission_id": "AI_PILOT_20251026_085045",
+  "aircraft": {
+    "name": "AI_Pilot_Flying_Wing_185g",
+    "type": "flying_wing",
+    "wingspan": 800,
+    "wing_area": 0.12,
+    "empty_weight": 185.0,
+    "max_takeoff_weight": 205.0,
+    "cg_location_percent": 0.25,
+    "stability_margin": 0.1,
+    "estimated_flight_time": 47.0,
+    "airspeeds": {
+      "Vs": 1.1,
+      "Vx": 1.2,
+      "Vy": 1.4,
+      "Vno": 1.7
+    },
+    "weight_balance": {
+      "total_weight": 185.0,
+      "cg_from_wing": -101.27027027027027,
+      "cg_from_nose": -1.2702702702702737,
+      "mac": 150.0,
+      "neutral_point": 37.5,
+      "stability_margin": 0.925135135135135,
+      "is_stable": true,
+      "weight_distribution": [
+        {
+          "component": "Tiny v2.11",
+          "weight": 8,
+          "position": 0,
+          "relative_pos": -100,
+          "moment": -800
+        },
+        {
+          "component": "MPU-6050 IMU",
+          "weight": 1,
+          "position": 120,
+          "relative_pos": 20,
+          "moment": 20
+        },
+        {
+          "component": "u-blox NEO-M8N GPS",
+          "weight": 2.5,
+          "position": 140,
+          "relative_pos": 40,
+          "moment": 100.0
+        },
+        {
+          "component": "MS5611 Barometric Pressure",
+          "weight": 0.5,
+          "position": 130,
+          "relative_pos": 30,
+          "moment": 15.0
+        },
+        {
+          "component": "MP3V5004 Airspeed Sensor",
+          "weight": 17,
+          "position": 50,
+          "relative_pos": -50,
+          "moment": -850
+        },
+        {
+          "component": "LiPo Battery",
+          "weight": 141.0,
+          "position": -20,
+          "relative_pos": -120,
+          "moment": -16920.0
+        },
+        {
+          "component": "Brushless Motor + Propeller",
+          "weight": 15,
+          "position": 80,
+          "relative_pos": -20,
+          "moment": -300
+        }
+      ]
+    }
+  },
+  "weather": {
+    "metar": {
+      "station": "KEXAMPLE",
+      "temperature": 25,
+      "dewpoint": 15,
+      "wind_speed": 8,
+      "wind_direction": 180,
+      "visibility": 10,
+      "altimeter": 30.12,
+      "ceiling": 5000
+    },
+    "taf": {
+      "forecast": "VFR conditions expected",
+      "wind": "5-10 knots",
+      "visibility": "greater than 6 miles"
+    },
+    "flight_risk": "LOW_RISK"
+  },
+  "terrain": {
+    "max_terrain_elevation": 500,
+    "obstacles": [
+      {
+        "location": {
+          "lat": 37.7749,
+          "lon": -122.4194,
+          "altitude": 200
+        },
+        "height": 200,
+        "type": "tree_line"
+      }
+    ],
+    "minimum_safe_altitude": 700,
+    "terrain_clearance": false
+  },
+  "performance": {
+    "cruise_speed": 1.4,
+    "max_speed": 1.7,
+    "stall_speed": 1.1,
+    "estimated_flight_time": 46.624,
+    "range": 52.218880000000006,
+    "wind_impact": 0.8,
+    "battery_reserve": 5
+  },
+  "waypoints": [
+    {
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "altitude": 200
+    },
+    {
+      "lat": 37.7859,
+      "lon": -122.4094,
+      "altitude": 250
+    },
+    {
+      "lat": 37.7749,
+      "lon": -122.4194,
+      "altitude": 200
+    }
+  ],
+  "emergency_procedures": {
+    "engine_failure": {
+      "immediate_actions": [
+        "Reduce throttle to idle",
+        "Pitch down for best glide speed"
+      ],
+      "best_glide_speed": "Vs + 5 knots",
+      "landing_priority": "Find suitable landing area immediately"
+    },
+    "loss_of_control": {
+      "immediate_actions": [
+        "Throttle to idle",
+        "Attempt recovery with full control deflection"
+      ],
+      "recovery_technique": "Opposite rudder to stop rotation, then gentle back pressure"
+    },
+    "low_battery": {
+      "warning_threshold": "20% remaining",
+      "actions": [
+        "Return to launch immediately",
+        "Use minimum throttle for cruise"
+      ],
+      "reserve_time": "5 minutes at minimum throttle"
+    },
+    "ads_b_traffic": {
+      "separation_standard": "500 feet vertical, 1 nautical mile horizontal",
+      "avoidance_action": "Climb or descend to increase separation",
+      "communication": "Monitor ADS-B display continuously"
+    }
+  },
+  "pilot_briefing": "AI PILOT BRIEFING - 2025-10-26 08:50\n\nAIRCRAFT: AI_Pilot_Flying_Wing_185g\nWeight: 185.0g\nFlight Time: 47.0 minutes\n\nWEATHER:\nWind: 8 knots\nVisibility: 10 miles\nFlight Risk: LOW_RISK\n\nTERRAIN:\nMax Elevation: 500 feet MSL\nMin Safe Altitude: 700 feet MSL\nObstacles: 1 detected\n\nCRITICAL SPEEDS:\nStall (Vs): 1.1 m/s\nBest Climb (Vx): 1.2 m/s\nBest Cruise (Vy): 1.4 m/s\nMax Speed (Vno): 1.7 m/s\n\nEMERGENCY PROCEDURES:\n- Engine failure: Reduce throttle, pitch for best glide\n- Control loss: Throttle idle, use rudder for recovery\n- Low battery: Return to launch immediately\n- Traffic: Maintain 500ft vertical separation\n\nSAFETY FIRST: Never compromise safety for mission completion.\nGo-around is always an option if landing is not assured.",
+  "faa_compliance": {
+    "compliant": false,
+    "violations": [
+      "Insufficient battery reserve. Need at least 5min reserve"
+    ],
+    "warnings": [],
+    "recommendations": []
+  },
+  "go_no_go": {
+    "go": false,
+    "confidence_level": "LOW",
+    "reasons": [
+      "Failed faa compliant check",
+      "Failed terrain clearance check"
+    ],
+    "recommendations": []
+  }
+}
