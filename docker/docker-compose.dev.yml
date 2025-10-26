@@ -1,0 +1,109 @@
+version: '3.8'
+
+services:
+  # MQTT Broker
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0
+    container_name: paparazzi-mqtt
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./docker/mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+      - mqtt-data:/mosquitto/data
+      - mqtt-logs:/mosquitto/log
+    restart: unless-stopped
+
+  # Message Broker Service
+  message-broker:
+    build:
+      context: .
+      target: development
+    container_name: paparazzi-broker
+    ports:
+      - "8080:8080"
+    environment:
+      - NODE_ENV=development
+      - MQTT_URL=mqtt://mqtt-broker:1883
+      - BROKER_PORT=8080
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - mqtt-broker
+    restart: unless-stopped
+    command: ["npm", "run", "dev:broker"]
+
+  # MCP Server
+  mcp-server:
+    build:
+      context: .
+      target: development
+    container_name: paparazzi-mcp
+    ports:
+      - "8081:8081"
+    environment:
+      - NODE_ENV=development
+      - MCP_PORT=8081
+      - BROKER_URL=ws://message-broker:8080
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - message-broker
+    restart: unless-stopped
+    command: ["npm", "run", "dev:mcp"]
+
+  # Ground Control Station (Web UI)
+  gcs:
+    build:
+      context: .
+      target: development
+    container_name: paparazzi-gcs
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_BROKER_URL=ws://localhost:8080
+      - REACT_APP_MCP_URL=ws://localhost:8081
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - message-broker
+      - mcp-server
+    restart: unless-stopped
+    command: ["npm", "run", "dev:gcs"]
+
+  # Simulator (for testing without real hardware)
+  simulator:
+    build:
+      context: .
+      target: development
+    container_name: paparazzi-sim
+    environment:
+      - NODE_ENV=development
+      - BROKER_URL=ws://message-broker:8080
+      - AIRCRAFT_ID=sim_aircraft_001
+    volumes:
+      - .:/app
+      - /app/node_modules
+    depends_on:
+      - message-broker
+    restart: unless-stopped
+    command: ["npm", "run", "sim"]
+
+  # Redis for session storage and caching
+  redis:
+    image: redis:7-alpine
+    container_name: paparazzi-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+volumes:
+  mqtt-data:
+  mqtt-logs:
+  redis-data:
