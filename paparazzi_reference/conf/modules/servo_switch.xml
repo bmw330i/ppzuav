@@ -1,0 +1,29 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<module name="servo_switch">
+  <doc>
+    <description>Servo switch</description>
+    <define name="SERVO_SWITCH_ON_VALUE"  value="pwm" description="servo value in usec"/>
+    <define name="SERVO_SWITCH_OFF_VALUE" value="pwm" description="servo value in usec"/>
+    <define name="SERVO_SWITCH_SERVO"     value="nb" description="Id of the servo to use"/>
+  </doc>
+  <header>
+    <file name="servo_switch.h"/>
+  </header>
+  <init fun="servo_switch_init()"/>
+  <periodic fun="servo_switch_periodic()" freq="10."/>
+  <makefile target="ap|sim|jsbsim">
+
+<!-- these parameters should be set for that module in the airframe file unless you want the defaults
+     Servo value in usec
+  <load name="servo_switch.xml">
+    <define name="SERVO_SWITCH_ON_VALUE"  value="2000"/>
+    <define name="SERVO_SWITCH_OFF_VALUE" value="1000"/>
+    <define name="SERVO_SWITCH_SERVO"     value="SERVO_SWITCH"/>
+  </load>
+-->
+
+    <file name="servo_switch.c"/>
+  </makefile>
+</module>
+

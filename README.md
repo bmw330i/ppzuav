@@ -156,50 +156,39 @@ Enterprise-grade service management built for reliability:
 - **🎛️ Service Orchestration**: Start/stop/restart all components with simple commands
 - **📈 Health Monitoring**: Real-time status checking with PID tracking
 - **🔍 Advanced Log Analysis**: Search, filter, and monitor across all services
-- **⚡ Hot Reloading**: Development mode with automatic service restart on code changes## 🚀 **Quick Start Guide**
+- **⚡ Hot Reloading**: Development mode with automatic service restart on code changes## � **Quick Start - New Workspace**
 
-### **📋 Prerequisites**
+Ready to jump right back into development? Here's your instant setup:
+
+### **⚡ Immediate Development Setup**
 ```bash
-# Verify Node.js version (18+ required, ARM64 optimized for Apple Silicon)
-node --version  # Should show v18.0.0 or higher
+# 1. Install dependencies
+npm install
 
-# Verify Python 3.7+ for AI Pilot system
-python3 --version  # Should show v3.7.0 or higher
+# 2. Test the AI Pilot system
+python3 aircraft_builder/aircraft_builder.py
+python3 aircraft_builder/ai_pilot.py
+python3 aircraft_builder/complete_ai_pilot_system.py
 
-# Verify pip for Python package management
-pip3 --version
-```
-
-### **⚡ Super Fast Setup**
-```bash
-# 1. Clone and setup (one command)
-git clone https://github.com/bmw330i/paparazzi.git && cd paparazzi && npm run setup
-
-# 2. Start all services in background
+# 3. Start development environment
 npm run services:start
-
-# 3. Open Ground Control Station
 open http://localhost:3000
 ```
 
-### **🤖 AI Pilot System Quick Start**
-```bash
-# 1. Design your aircraft (generates complete UAV configuration)
-python3 aircraft_builder/aircraft_builder.py
+### **📖 Essential Reading for New Workspace**
+- **[DEVELOPMENT_CONTEXT.md](./DEVELOPMENT_CONTEXT.md)** - Complete conversation history and current status
+- **[AI_ASSISTANT_INSTRUCTIONS.md](./AI_ASSISTANT_INSTRUCTIONS.md)** - Instructions for AI development
+- **[QUICK_START.md](./QUICK_START.md)** - Immediate setup and orientation guide
+- **[LAUNCH_DETECTION_GUIDE.md](./LAUNCH_DETECTION_GUIDE.md)** - Next implementation priority
 
-# 2. Generate FAA-compliant flight plan
-python3 aircraft_builder/ai_pilot.py
+### **� Current Focus: Launch Detection**
+**Remaining Priority**: Implement IMU-based launch detection and mission automation (see LAUNCH_DETECTION_GUIDE.md)
 
-# 3. Execute complete autonomous mission
-python3 aircraft_builder/complete_ai_pilot_system.py
-```
-
-### **🎮 Test the Interactive Map**
-1. **Navigate to Map Tab** in the GCS interface
-2. **Wait for geolocation** - Your position will be detected automatically via IP
-3. **Click "📡 Live Data"** to switch to **"🎮 Demo Mode"**
-4. **Watch the magic** - See a simulated aircraft flying with real-time telemetry
-5. **Observe flight path** - Watch the orange line trace the aircraft's movement
+### **📊 Project Status**
+- ✅ **Complete AI Pilot System**: Aircraft design through autonomous operations
+- ✅ **Code Separation**: GPL-free codebase in private repository
+- ✅ **Security**: Protected IP with independent licensing
+- 🔧 **Next**: Launch detection and final system integration
 
 ## 🎛️ **Service Management**
 

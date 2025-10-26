@@ -1,0 +1,34 @@
+<!DOCTYPE module SYSTEM "module.dtd">
+
+<!--
+     Airspeed ETS module (I2C)
+     @define AIRSPEED_ETS_SCALE scale factor (default 1.8)
+     @define AIRSPEED_ETS_OFFSET offset (default 0)
+     @define AIRSPEED_ETS_I2C_DEV i2c device (default i2c0)
+     @define USE_AIRSPEED to use the data for airspeed control loop
+     @define SENSOR_SYNC_SEND to transmit the data as it is acquired
+     -->
+
+<module name="airspeed_ets" dir="sensors">
+  <doc>
+    <description>Airspeed ETS module (I2C)</description>
+    <define name="AIRSPEED_ETS_I2C_DEV" value="i2cX" description="change default i2c peripheral"/>
+    <define name="AIRSPEED_ETS_OFFSET" value="sensor offset"/>
+    <define name="AIRSPEED_ETS_SCALE" value="sensor scale factor"/>
+    <define name="USE_AIRSPEED" description="flag to use the data for airspeed control"/>
+    <define name="SENSOR_SYNC_SEND" description="flag to transmit the data as it is acquired"/>
+  </doc>
+
+  <header>
+    <file name="airspeed_ets.h"/>
+  </header>
+  <init fun="airspeed_ets_init()"/>
+  <periodic fun="airspeed_ets_read_periodic()" freq="10."/>
+  <event fun="AirspeedEtsEvent()"/>
+
+  <makefile>
+    <file name="airspeed_ets.c"/>
+  </makefile>
+
+</module>
+
