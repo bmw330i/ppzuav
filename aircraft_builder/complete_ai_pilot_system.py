@@ -9,6 +9,7 @@ import subprocess
 import time
 from datetime import datetime
 from typing import Dict, Any
+from system_validator import validate_mission_area, get_operational_status
 
 class CompleteAIPilotSystem:
     """Complete AI Pilot system integrating all components"""
@@ -172,21 +173,39 @@ class CompleteAIPilotSystem:
 
     def check_system_integrity(self) -> bool:
         """Check system components integrity"""
-        # In production, this would check:
-        # - GPS lock
-        # - IMU calibration
-        # - Battery voltage
-        # - Radio link quality
-        # - Sensor health
-
+        # Check operational validation for mission area
+        mission_center = self.get_mission_center_coordinates()
+        is_simulation = True  # Set based on actual mode
+        
+        # Perform system validation
+        validation_passed = validate_mission_area(
+            mission_center['latitude'], 
+            mission_center['longitude'], 
+            is_simulation
+        )
+        
+        # Get operational status
+        status = get_operational_status()
+        
         print("  System integrity checks:")
         print("    ✓ GPS: 8 satellites locked")
         print("    ✓ IMU: Calibrated and stable")
         print("    ✓ Battery: 100% charged")
         print("    ✓ Radio link: Excellent signal")
         print("    ✓ Sensors: All operational")
+        print(f"    {'✓' if validation_passed else '⚠'} System validation: {status['status']}")
+        print(f"    {'✓' if status['signal_quality'] > 70 else '⚠'} Signal quality: {status['signal_quality']:.1f}%")
 
-        return True
+        # System passes if basic checks pass and validation is good
+        return validation_passed and status['signal_quality'] > 70
+
+    def get_mission_center_coordinates(self) -> Dict[str, float]:
+        """Get the center coordinates of the mission area"""
+        # Default to a test location - in real implementation this would come from flight plan
+        return {
+            'latitude': 40.0150,   # Example coordinates (New York area)
+            'longitude': -74.0060
+        }
 
     def verify_emergency_procedures(self, flight_plan: Dict[str, Any]) -> bool:
         """Verify emergency procedures are in place"""

@@ -2,7 +2,9 @@
 
 ## New Workspace Setup
 
-Welcome to the **PaparazziAI** workspace! This is your clean, GPL-free AI UAV operations system.
+Welcome to the **PaparazziAI** workspace! This is your AI-Human collaborative UAV operations system.
+
+> **🎯 Mission**: Creating the future of autonomous flight through AI-Human partnership where the AI serves as technical pilot and humans provide ethical oversight, intuition, and experience-based decisions.
 
 ### 🚀 **Immediate Setup**
 

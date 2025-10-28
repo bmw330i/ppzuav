@@ -19,6 +19,7 @@ import { GPSSimulator } from './gps-simulator.js';
 import { EnvironmentModel } from './environment-model.js';
 import { FlightPlanExecutor } from './flight-plan-executor.js';
 import { TelemetryGenerator } from './telemetry-generator.js';
+import SystemCalibration from '../utils/system-calibration.js';
 import { simulatorLogger as logger } from '../utils/file-logger.js';
 import type { 
   SimulatorConfig, 
@@ -46,10 +47,15 @@ export class FlightSimulator {
   private simulators = new Map<string, SimulatorInstance>();
   private simulationTimer: NodeJS.Timeout | null = null;
   private telemetryGenerator: TelemetryGenerator;
+  private systemCalibration: SystemCalibration;
 
   constructor(config: SimulatorConfig) {
     this.config = config;
     this.telemetryGenerator = new TelemetryGenerator();
+    this.systemCalibration = SystemCalibration.getInstance();
+    
+    // Enable simulator mode for calibration system
+    this.systemCalibration.setSimulatorMode(true);
     
     // Setup Express server for web interface
     const app = express();
@@ -241,7 +247,7 @@ export class FlightSimulator {
       simulator.flightModel.processCommand(command);
       logger.info('Command processed', { 
         aircraftId: command.destination, 
-        command: command.type 
+        command: command.commandType 
       });
     }
   }
@@ -372,7 +378,8 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   const simulator = new FlightSimulator({
     port: parseInt(process.env.SIMULATOR_PORT || '8090'),
     simulationFrequency: 50, // Hz
-    enableFlightGear: process.env.ENABLE_FLIGHTGEAR === 'true'
+    enableFlightGear: process.env.ENABLE_FLIGHTGEAR === 'true',
+    realtimeFactor: 1.0
   });
 
   simulator.start().catch((error) => {

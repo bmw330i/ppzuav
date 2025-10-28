@@ -15,7 +15,31 @@
 - ✅ **LLM Integration** - Model Context Protocol for intelligent flight management
 - ✅ **Modern Architecture** - Node.js/TypeScript with professional service management
 
-## 🎯 **Project Vision**
+## 🎯 **Project Mission & Philosophy**
+
+**PaparazziAI represents the evolution of autonomous UAV operations through AI-Human collaboration.**
+
+This system embodies a revolutionary approach where **AI and humans work as a unified team** - the AI serves as the technical pilot handling precise flight operations while humans provide intuition, experience, and ethical oversight. Together, they achieve capabilities that neither could accomplish alone.
+
+### Core Mission Principles
+
+- **🤝 AI-Human Partnership**: Neither operates independently - they collaborate as co-pilots
+- **🎯 Ethical Operations Only**: Scientific research, search & rescue, and beneficial missions
+- **🛡️ Zero Harm Principle**: Complete safety for humans, aircraft, and the public
+- **🌐 Off-Grid Capable**: Local LLM support for operations without internet dependency
+- **⚡ Real-Time Decisions**: Human intuition guides AI technical precision
+- **🧠 Continuous Learning**: AI learns from human experience and judgment
+
+### Good Actor Framework
+
+This platform is designed exclusively for **legitimate operators with good intentions**:
+- Scientific research and data collection
+- Search and rescue operations  
+- Environmental monitoring
+- Educational and training purposes
+- Emergency response support
+
+The system incorporates multiple validation layers to ensure ethical use and operational safety.
 
 PaparazziAI represents a complete modernization of UAV operations, introducing AI pilot capabilities, automated aircraft design, and FAA-compliant autonomous flight operations. The system features LLM integration via Model Context Protocol (MCP), interactive real-time mapping, and a comprehensive hardware database for sub-250g UAVs.
 
